@@ -1,0 +1,182 @@
+{
+    "sourceFile": "src/components/Iteam.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 41,
+            "patches": [
+                {
+                    "date": 1712117835541,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1712117874093,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n         </label>\r\n         <button class='btn' @click=\"moveTodo\">删除</button>\r\n     </li>\r\n </template>\r\n-<script>\r\n+<script lang=\"ts\" name=\"Footer\" setup>\r\n    \r\n </script>\r\n \r\n <style scoped>\r\n"
+                },
+                {
+                    "date": 1712117965489,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,14 @@\n <template>\r\n     <li>\r\n         <label>\r\n-            <input type=\"checkbox\" @change=\"checkTodo(todo.id)\" :checked=\"todo.done\">\r\n+            <input type=\"checkbox\" >\r\n             <span>{{todo.thing}}</span>\r\n         </label>\r\n         <button class='btn' @click=\"moveTodo\">删除</button>\r\n     </li>\r\n </template>\r\n-<script lang=\"ts\" name=\"Footer\" setup>\r\n+<script lang=\"ts\" name=\"Item\" setup>\r\n    \r\n </script>\r\n \r\n <style scoped>\r\n"
+                },
+                {
+                    "date": 1712117974730,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,21 @@\n+<template>\r\n+    <li>\r\n+        <label>\r\n+            <input type=\"checkbox\">\r\n+            <span>写作业</span>\r\n+        </label>\r\n+        <button class='btn' @click=\"moveTodo\">删除</button>\r\n+    </li>\r\n+</template>\r\n+<script lang=\"ts\" name=\"Item\" setup>\r\n+   \r\n+</script>\r\n+\r\n+<style scoped>\r\n+    .btn{\r\n+        display: none;\r\n+    }\r\n+    li:hover .btn{\r\n+        display: block;\r\n+    }\r\n+</style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712146145794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n         <button class='btn' @click=\"moveTodo\">删除</button>\r\n     </li>\r\n </template>\r\n <script lang=\"ts\" name=\"Item\" setup>\r\n-   \r\n+       defineProps(['list'])\r\n </script>\r\n \r\n <style scoped>\r\n     .btn{\r\n@@ -17,26 +17,5 @@\n     }\r\n     li:hover .btn{\r\n         display: block;\r\n     }\r\n-</style>\n-<template>\r\n-    <li>\r\n-        <label>\r\n-            <input type=\"checkbox\" >\r\n-            <span>{{todo.thing}}</span>\r\n-        </label>\r\n-        <button class='btn' @click=\"moveTodo\">删除</button>\r\n-    </li>\r\n-</template>\r\n-<script lang=\"ts\" name=\"Item\" setup>\r\n-   \r\n-</script>\r\n-\r\n-<style scoped>\r\n-    .btn{\r\n-        display: none;\r\n-    }\r\n-    li:hover .btn{\r\n-        display: block;\r\n-    }\r\n </style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712146151629,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n         <button class='btn' @click=\"moveTodo\">删除</button>\r\n     </li>\r\n </template>\r\n <script lang=\"ts\" name=\"Item\" setup>\r\n-       defineProps(['list'])\r\n+    defineProps(['list'])\r\n </script>\r\n \r\n <style scoped>\r\n     .btn{\r\n"
+                },
+                {
+                    "date": 1712146158134,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n         <button class='btn' @click=\"moveTodo\">删除</button>\r\n     </li>\r\n </template>\r\n <script lang=\"ts\" name=\"Item\" setup>\r\n+    import {}\r\n     defineProps(['list'])\r\n </script>\r\n \r\n <style scoped>\r\n"
+                },
+                {
+                    "date": 1712146165372,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n         <button class='btn' @click=\"moveTodo\">删除</button>\r\n     </li>\r\n </template>\r\n <script lang=\"ts\" name=\"Item\" setup>\r\n-    import {}\r\n+    import { defineProps } from 'vue';\r\n     defineProps(['list'])\r\n </script>\r\n \r\n <style scoped>\r\n"
+                },
+                {
+                    "date": 1712146174079,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-    <li>\r\n+    <li >\r\n         <label>\r\n             <input type=\"checkbox\">\r\n             <span>写作业</span>\r\n         </label>\r\n"
+                },
+                {
+                    "date": 1712146181680,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,13 @@\n <template>\r\n-    <li >\r\n+    <li>\r\n         <label>\r\n             <input type=\"checkbox\">\r\n             <span>写作业</span>\r\n         </label>\r\n         <button class='btn' @click=\"moveTodo\">删除</button>\r\n     </li>\r\n+    {{ list }}\r\n </template>\r\n <script lang=\"ts\" name=\"Item\" setup>\r\n     import { defineProps } from 'vue';\r\n     defineProps(['list'])\r\n"
+                },
+                {
+                    "date": 1712146280361,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,8 @@\n             <span>写作业</span>\r\n         </label>\r\n         <button class='btn' @click=\"moveTodo\">删除</button>\r\n     </li>\r\n-    {{ list }}\r\n </template>\r\n <script lang=\"ts\" name=\"Item\" setup>\r\n     import { defineProps } from 'vue';\r\n     defineProps(['list'])\r\n"
+                },
+                {
+                    "date": 1712146287093,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-    <li>\r\n+    <li v-for=\"list in \">\r\n         <label>\r\n             <input type=\"checkbox\">\r\n             <span>写作业</span>\r\n         </label>\r\n"
+                },
+                {
+                    "date": 1712146294209,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-    <li v-for=\"list in \">\r\n+    <li v-for=\"l in list\">\r\n         <label>\r\n             <input type=\"checkbox\">\r\n             <span>写作业</span>\r\n         </label>\r\n"
+                },
+                {
+                    "date": 1712146299650,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-    <li v-for=\"l in list\">\r\n+    <li v-for=\"(l,index) in list\">\r\n         <label>\r\n             <input type=\"checkbox\">\r\n             <span>写作业</span>\r\n         </label>\r\n"
+                },
+                {
+                    "date": 1712146306302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-    <li v-for=\"(l,index) in list\">\r\n+    <li v-for=\"(l,index) in list\" :key=\"index\">\r\n         <label>\r\n             <input type=\"checkbox\">\r\n             <span>写作业</span>\r\n         </label>\r\n"
+                },
+                {
+                    "date": 1712146314314,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <template>\r\n     <li v-for=\"(l,index) in list\" :key=\"index\">\r\n         <label>\r\n             <input type=\"checkbox\">\r\n-            <span>写作业</span>\r\n+            <span>{{i.thing}}</span>\r\n         </label>\r\n         <button class='btn' @click=\"moveTodo\">删除</button>\r\n     </li>\r\n </template>\r\n"
+                },
+                {
+                    "date": 1712146325174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <template>\r\n     <li v-for=\"(l,index) in list\" :key=\"index\">\r\n         <label>\r\n             <input type=\"checkbox\">\r\n-            <span>{{i.thing}}</span>\r\n+            <span>{{item.thing}}</span>\r\n         </label>\r\n         <button class='btn' @click=\"moveTodo\">删除</button>\r\n     </li>\r\n </template>\r\n"
+                },
+                {
+                    "date": 1712146362606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <template>\r\n-    <li v-for=\"(l,index) in list\" :key=\"index\">\r\n+    <li v-for=\"(item,index) in list\" :key=\"index\">\r\n         <label>\r\n             <input type=\"checkbox\">\r\n             <span>{{item.thing}}</span>\r\n         </label>\r\n@@ -12,11 +12,9 @@\n     defineProps(['list'])\r\n </script>\r\n \r\n <style scoped>\r\n-    .btn{\r\n-        display: none;\r\n-    }\r\n+    \r\n     li:hover .btn{\r\n         display: block;\r\n     }\r\n </style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712146369033,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,14 @@\n     defineProps(['list'])\r\n </script>\r\n \r\n <style scoped>\r\n-    \r\n+    li{\r\n+        di\r\n+    }\r\n     li:hover .btn{\r\n         display: block;\r\n     }\r\n+    .btn{\r\n+        display: none;\r\n+    }\r\n </style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712146376355,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n </script>\r\n \r\n <style scoped>\r\n     li{\r\n-        di\r\n+        list\r\n     }\r\n     li:hover .btn{\r\n         display: block;\r\n     }\r\n"
+                },
+                {
+                    "date": 1712146386756,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,10 @@\n </script>\r\n \r\n <style scoped>\r\n     li{\r\n-        list\r\n+        list-style: none;\r\n+        di\r\n     }\r\n     li:hover .btn{\r\n         display: block;\r\n     }\r\n"
+                },
+                {
+                    "date": 1712146443419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,10 @@\n \r\n <style scoped>\r\n     li{\r\n         list-style: none;\r\n-        di\r\n+        display: flex;\r\n+        justify-content: space-between\r\n     }\r\n     li:hover .btn{\r\n         display: block;\r\n     }\r\n"
+                },
+                {
+                    "date": 1712146448847,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,10 @@\n <style scoped>\r\n     li{\r\n         list-style: none;\r\n         display: flex;\r\n-        justify-content: space-between\r\n+        justify-content: space-between;\r\n+        padding: ;\r\n     }\r\n     li:hover .btn{\r\n         display: block;\r\n     }\r\n"
+                },
+                {
+                    "date": 1712146454125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n     li{\r\n         list-style: none;\r\n         display: flex;\r\n         justify-content: space-between;\r\n-        padding: ;\r\n+        padding: 10px 5px;\r\n     }\r\n     li:hover .btn{\r\n         display: block;\r\n     }\r\n"
+                },
+                {
+                    "date": 1712146469956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n     li{\r\n         list-style: none;\r\n         display: flex;\r\n         justify-content: space-between;\r\n-        padding: 10px 5px;\r\n+        padding: 5px 5px;\r\n     }\r\n     li:hover .btn{\r\n         display: block;\r\n     }\r\n"
+                },
+                {
+                    "date": 1712148292303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,11 @@\n </template>\r\n <script lang=\"ts\" name=\"Item\" setup>\r\n     import { defineProps } from 'vue';\r\n     defineProps(['list'])\r\n+    function moveTodo(){\r\n+        \r\n+    }\r\n </script>\r\n \r\n <style scoped>\r\n     li{\r\n"
+                },
+                {
+                    "date": 1712148299818,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,25 +3,25 @@\n         <label>\r\n             <input type=\"checkbox\">\r\n             <span>{{item.thing}}</span>\r\n         </label>\r\n-        <button class='btn' @click=\"moveTodo\">删除</button>\r\n+        <button class='btn' @click=\"moveTodo(index)\">删除</button>\r\n     </li>\r\n </template>\r\n <script lang=\"ts\" name=\"Item\" setup>\r\n     import { defineProps } from 'vue';\r\n-    defineProps(['list'])\r\n+    defineProps(['list',index])\r\n     function moveTodo(){\r\n-        \r\n+\r\n     }\r\n </script>\r\n \r\n <style scoped>\r\n     li{\r\n         list-style: none;\r\n         display: flex;\r\n         justify-content: space-between;\r\n-        padding: 5px 5px;\r\n+        padding: 5px 15px;\r\n     }\r\n     li:hover .btn{\r\n         display: block;\r\n     }\r\n"
+                },
+                {
+                    "date": 1712148305763,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,10 +8,10 @@\n     </li>\r\n </template>\r\n <script lang=\"ts\" name=\"Item\" setup>\r\n     import { defineProps } from 'vue';\r\n-    defineProps(['list',index])\r\n-    function moveTodo(){\r\n+    defineProps(['list','index'])\r\n+    function moveTodo(index){\r\n \r\n     }\r\n </script>\r\n \r\n"
+                },
+                {
+                    "date": 1712148311018,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,10 @@\n <script lang=\"ts\" name=\"Item\" setup>\r\n     import { defineProps } from 'vue';\r\n     defineProps(['list','index'])\r\n     function moveTodo(index){\r\n-\r\n+        console.log(idnex);\r\n+        \r\n     }\r\n </script>\r\n \r\n <style scoped>\r\n"
+                },
+                {
+                    "date": 1712148318338,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,10 @@\n </template>\r\n <script lang=\"ts\" name=\"Item\" setup>\r\n     import { defineProps } from 'vue';\r\n     defineProps(['list','index'])\r\n-    function moveTodo(index){\r\n-        console.log(idnex);\r\n+    function moveTodo(index:number){\r\n+        console.log(index);\r\n         \r\n     }\r\n </script>\r\n \r\n"
+                },
+                {
+                    "date": 1712148329445,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     </li>\r\n </template>\r\n <script lang=\"ts\" name=\"Item\" setup>\r\n     import { defineProps } from 'vue';\r\n-    defineProps(['list','index'])\r\n+    defineProps(['list'])\r\n     function moveTodo(index:number){\r\n         console.log(index);\r\n         \r\n     }\r\n"
+                },
+                {
+                    "date": 1712148378371,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,8 @@\n <script lang=\"ts\" name=\"Item\" setup>\r\n     import { defineProps } from 'vue';\r\n     defineProps(['list'])\r\n     function moveTodo(index:number){\r\n-        console.log(index);\r\n         \r\n     }\r\n </script>\r\n \r\n"
+                },
+                {
+                    "date": 1712148591450,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     </li>\r\n </template>\r\n <script lang=\"ts\" name=\"Item\" setup>\r\n     import { defineProps } from 'vue';\r\n-    defineProps(['list'])\r\n+    defineProps(['list','deleteFun'])\r\n     function moveTodo(index:number){\r\n         \r\n     }\r\n </script>\r\n"
+                },
+                {
+                    "date": 1712148617288,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n <script lang=\"ts\" name=\"Item\" setup>\r\n     import { defineProps } from 'vue';\r\n     defineProps(['list','deleteFun'])\r\n     function moveTodo(index:number){\r\n-        \r\n+        deleteFun()\r\n     }\r\n </script>\r\n \r\n <style scoped>\r\n"
+                },
+                {
+                    "date": 1712148807698,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,16 +3,16 @@\n         <label>\r\n             <input type=\"checkbox\">\r\n             <span>{{item.thing}}</span>\r\n         </label>\r\n-        <button class='btn' @click=\"moveTodo(index)\">删除</button>\r\n+        <button class='btn' @click=\"deleteFun(index)\">删除</button>\r\n     </li>\r\n </template>\r\n <script lang=\"ts\" name=\"Item\" setup>\r\n     import { defineProps } from 'vue';\r\n     defineProps(['list','deleteFun'])\r\n     function moveTodo(index:number){\r\n-        deleteFun()\r\n+        deleteFun(index)\r\n     }\r\n </script>\r\n \r\n <style scoped>\r\n"
+                },
+                {
+                    "date": 1712148951795,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,19 +1,17 @@\n <template>\r\n     <li v-for=\"(item,index) in list\" :key=\"index\">\r\n         <label>\r\n-            <input type=\"checkbox\">\r\n+            <input type=\"checkbox\" >\r\n             <span>{{item.thing}}</span>\r\n         </label>\r\n         <button class='btn' @click=\"deleteFun(index)\">删除</button>\r\n     </li>\r\n </template>\r\n <script lang=\"ts\" name=\"Item\" setup>\r\n     import { defineProps } from 'vue';\r\n     defineProps(['list','deleteFun'])\r\n-    function moveTodo(index:number){\r\n-        deleteFun(index)\r\n-    }\r\n+\r\n </script>\r\n \r\n <style scoped>\r\n     li{\r\n"
+                },
+                {
+                    "date": 1712148965970,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\r\n     <li v-for=\"(item,index) in list\" :key=\"index\">\r\n         <label>\r\n-            <input type=\"checkbox\" >\r\n+            <input type=\"checkbox\" checked=\"\">\r\n             <span>{{item.thing}}</span>\r\n         </label>\r\n         <button class='btn' @click=\"deleteFun(index)\">删除</button>\r\n     </li>\r\n"
+                },
+                {
+                    "date": 1712148973480,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\r\n     <li v-for=\"(item,index) in list\" :key=\"index\">\r\n         <label>\r\n-            <input type=\"checkbox\" checked=\"\">\r\n+            <input type=\"checkbox\" checked=\"item.done\">\r\n             <span>{{item.thing}}</span>\r\n         </label>\r\n         <button class='btn' @click=\"deleteFun(index)\">删除</button>\r\n     </li>\r\n"
+                },
+                {
+                    "date": 1712149117402,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\r\n     <li v-for=\"(item,index) in list\" :key=\"index\">\r\n         <label>\r\n-            <input type=\"checkbox\" checked=\"item.done\">\r\n+            <input type=\"checkbox\" :checked=\"item.done\" @change=\"\">\r\n             <span>{{item.thing}}</span>\r\n         </label>\r\n         <button class='btn' @click=\"deleteFun(index)\">删除</button>\r\n     </li>\r\n"
+                },
+                {
+                    "date": 1712149129644,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\r\n     <li v-for=\"(item,index) in list\" :key=\"index\">\r\n         <label>\r\n-            <input type=\"checkbox\" :checked=\"item.done\" @change=\"\">\r\n+            <input type=\"checkbox\" :checked=\"item.done\" @change=\"checkTodo(todo.id)\">\r\n             <span>{{item.thing}}</span>\r\n         </label>\r\n         <button class='btn' @click=\"deleteFun(index)\">删除</button>\r\n     </li>\r\n"
+                },
+                {
+                    "date": 1712149140359,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,16 @@\n <template>\r\n     <li v-for=\"(item,index) in list\" :key=\"index\">\r\n         <label>\r\n-            <input type=\"checkbox\" :checked=\"item.done\" @change=\"checkTodo(todo.id)\">\r\n+            <input type=\"checkbox\" :checked=\"item.done\" @change=\"checkTodo(index)\">\r\n             <span>{{item.thing}}</span>\r\n         </label>\r\n         <button class='btn' @click=\"deleteFun(index)\">删除</button>\r\n     </li>\r\n </template>\r\n <script lang=\"ts\" name=\"Item\" setup>\r\n     import { defineProps } from 'vue';\r\n-    defineProps(['list','deleteFun'])\r\n+    defineProps(['list','deleteFun',])\r\n \r\n </script>\r\n \r\n <style scoped>\r\n"
+                },
+                {
+                    "date": 1712149146707,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     </li>\r\n </template>\r\n <script lang=\"ts\" name=\"Item\" setup>\r\n     import { defineProps } from 'vue';\r\n-    defineProps(['list','deleteFun',])\r\n+    defineProps(['list','deleteFun',checkTodo])\r\n \r\n </script>\r\n \r\n <style scoped>\r\n"
+                }
+            ],
+            "date": 1712117835541,
+            "name": "Commit-0",
+            "content": "<template>\r\n    <li>\r\n        <label>\r\n            <input type=\"checkbox\" @change=\"checkTodo(todo.id)\" :checked=\"todo.done\">\r\n            <span>{{todo.thing}}</span>\r\n        </label>\r\n        <button class='btn' @click=\"moveTodo\">删除</button>\r\n    </li>\r\n</template>\r\n<script>\r\n   \r\n</script>\r\n\r\n<style scoped>\r\n    .btn{\r\n        display: none;\r\n    }\r\n    li:hover .btn{\r\n        display: block;\r\n    }\r\n</style>"
+        }
+    ]
+}

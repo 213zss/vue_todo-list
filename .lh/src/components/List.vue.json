@@ -1,0 +1,146 @@
+{
+    "sourceFile": "src/components/List.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 32,
+            "patches": [
+                {
+                    "date": 1712117845143,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1712117855541,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,9 @@\n     <ul class=\"todo-List\">\r\n         <Iteam v-for=\"todo in todos\" :key=\"todo.id\" :todo='todo'/>\r\n     </ul>\r\n </template>\r\n-\r\n-</script>\r\n+<script lang=\"ts\" nameList></script>\r\n     \r\n <style scoped>\r\n     .todo-List{\r\n         border: 1px solid #ddd;\r\n"
+                },
+                {
+                    "date": 1712117861521,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n     <ul class=\"todo-List\">\r\n         <Iteam v-for=\"todo in todos\" :key=\"todo.id\" :todo='todo'/>\r\n     </ul>\r\n </template>\r\n-<script lang=\"ts\" nameList></script>\r\n+<script lang=\"ts\" name='List' setup></script>\r\n     \r\n <style scoped>\r\n     .todo-List{\r\n         border: 1px solid #ddd;\r\n"
+                },
+                {
+                    "date": 1712117986445,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,12 @@\n <template>\r\n     <ul class=\"todo-List\">\r\n-        <Iteam v-for=\"todo in todos\" :key=\"todo.id\" :todo='todo'/>\r\n+        <Iteam>\r\n     </ul>\r\n </template>\r\n-<script lang=\"ts\" name='List' setup></script>\r\n+<script lang=\"ts\" name='List' setup>\r\n+\r\n+</script>\r\n     \r\n <style scoped>\r\n     .todo-List{\r\n         border: 1px solid #ddd;\r\n"
+                },
+                {
+                    "date": 1712118075501,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,11 @@\n <template>\r\n     <ul class=\"todo-List\">\r\n-        <Iteam>\r\n+        <Iteam></Iteam>\r\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n+   import Iteam from \"./Iteam.vue\";\r\n \r\n </script>\r\n     \r\n <style scoped>\r\n"
+                },
+                {
+                    "date": 1712144957270,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n    import Iteam from \"./Iteam.vue\";\r\n-\r\n+    \r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-List{\r\n"
+                },
+                {
+                    "date": 1712144963691,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n    import Iteam from \"./Iteam.vue\";\r\n-    \r\n+    import {de}\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-List{\r\n"
+                },
+                {
+                    "date": 1712144972776,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,10 @@\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n    import Iteam from \"./Iteam.vue\";\r\n-    import {de}\r\n+    import { DefineProps } from \"vue\";\r\n+    DefineProps['']\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-List{\r\n"
+                },
+                {
+                    "date": 1712144982321,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,10 +4,10 @@\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n    import Iteam from \"./Iteam.vue\";\r\n-    import { DefineProps } from \"vue\";\r\n-    DefineProps['']\r\n+    import { defineProps } from \"vue\";\r\n+    DefineProps['list']\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-List{\r\n"
+                },
+                {
+                    "date": 1712144991968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n    import Iteam from \"./Iteam.vue\";\r\n     import { defineProps } from \"vue\";\r\n-    DefineProps['list']\r\n+    defineProp(s['list'])\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-List{\r\n"
+                },
+                {
+                    "date": 1712145001387,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,14 @@\n <template>\r\n     <ul class=\"todo-List\">\r\n         <Iteam></Iteam>\r\n+        {{ list }}\r\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n    import Iteam from \"./Iteam.vue\";\r\n     import { defineProps } from \"vue\";\r\n-    defineProp(s['list'])\r\n+    defineProps(['list'])\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-List{\r\n"
+                },
+                {
+                    "date": 1712145068093,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n         {{ list }}\r\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n-   import Iteam from \"./Iteam.vue\";\r\n+    import Iteam from \"./Iteam.vue\";\r\n     import { defineProps } from \"vue\";\r\n     defineProps(['list'])\r\n </script>\r\n     \r\n"
+                },
+                {
+                    "date": 1712145205303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n     import Iteam from \"./Iteam.vue\";\r\n-    import { defineProps } from \"vue\";\r\n+    import { de } from \"vue\";\r\n     defineProps(['list'])\r\n </script>\r\n     \r\n <style scoped>\r\n"
+                },
+                {
+                    "date": 1712145211190,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n     import Iteam from \"./Iteam.vue\";\r\n-    import { de } from \"vue\";\r\n+    import { defineProps } from \"vue\";\r\n     defineProps(['list'])\r\n </script>\r\n     \r\n <style scoped>\r\n"
+                },
+                {
+                    "date": 1712145241385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n     <ul class=\"todo-List\">\r\n-        <Iteam></Iteam>\r\n+        <!-- <Iteam></Iteam> -->\r\n         {{ list }}\r\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n"
+                },
+                {
+                    "date": 1712145999340,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n <template>\r\n     <ul class=\"todo-List\">\r\n-        <!-- <Iteam></Iteam> -->\r\n-        {{ list }}\r\n+        <Iteam></Iteam>\r\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n     import Iteam from \"./Iteam.vue\";\r\n"
+                },
+                {
+                    "date": 1712146055998,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n     <ul class=\"todo-List\">\r\n-        <Iteam></Iteam>\r\n+        <Iteam v-bind=\"list\"></Iteam>\r\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n     import Iteam from \"./Iteam.vue\";\r\n"
+                },
+                {
+                    "date": 1712146143177,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,12 @@\n <template>\r\n     <ul class=\"todo-List\">\r\n-        <Iteam v-bind=\"list\"></Iteam>\r\n+        <Iteam v-bind=\"$attrs\"></Iteam>\r\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n     import Iteam from \"./Iteam.vue\";\r\n     import { defineProps } from \"vue\";\r\n-    defineProps(['list'])\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-List{\r\n"
+                },
+                {
+                    "date": 1712146670006,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,8 @@\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n     import Iteam from \"./Iteam.vue\";\r\n-    import { defineProps } from \"vue\";\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-List{\r\n"
+                },
+                {
+                    "date": 1712148392801,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,28 @@\n+<template>\r\n+    <ul class=\"todo-List\">\r\n+        <Iteam v-bind=\"$attrs\" ></Iteam>\r\n+    </ul>\r\n+</template>\r\n+<script lang=\"ts\" name='List' setup>\r\n+    import Iteam from \"./Iteam.vue\";\r\n+</script>\r\n+    \r\n+<style scoped>\r\n+    .todo-List{\r\n+        border: 1px solid #ddd;\r\n+        padding: 0;\r\n+    }\r\n+    .todo-List li{\r\n+        list-style: none;\r\n+        display: flex;    \r\n+        justify-content: space-between;\r\n+        align-items: center;\r\n+        padding: 0 5px;\r\n+        border-bottom: 1px solid #ddd;\r\n+        height: 35px;\r\n+    }\r\n+    .todo-List li:hover{\r\n+        background-color: #ccc;\r\n+    }\r\n+    \r\n+</style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712148398779,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n     <ul class=\"todo-List\">\r\n-        <Iteam v-bind=\"$attrs\" ></Iteam>\r\n+        <Iteam v-bind=\"$attrs\" @delete></Iteam>\r\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n     import Iteam from \"./Iteam.vue\";\r\n@@ -24,33 +24,5 @@\n     .todo-List li:hover{\r\n         background-color: #ccc;\r\n     }\r\n     \r\n-</style>\n-<template>\r\n-    <ul class=\"todo-List\">\r\n-        <Iteam v-bind=\"$attrs\"></Iteam>\r\n-    </ul>\r\n-</template>\r\n-<script lang=\"ts\" name='List' setup>\r\n-    import Iteam from \"./Iteam.vue\";\r\n-</script>\r\n-    \r\n-<style scoped>\r\n-    .todo-List{\r\n-        border: 1px solid #ddd;\r\n-        padding: 0;\r\n-    }\r\n-    .todo-List li{\r\n-        list-style: none;\r\n-        display: flex;    \r\n-        justify-content: space-between;\r\n-        align-items: center;\r\n-        padding: 0 5px;\r\n-        border-bottom: 1px solid #ddd;\r\n-        height: 35px;\r\n-    }\r\n-    .todo-List li:hover{\r\n-        background-color: #ccc;\r\n-    }\r\n-    \r\n </style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712148405779,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n     <ul class=\"todo-List\">\r\n-        <Iteam v-bind=\"$attrs\" @delete></Iteam>\r\n+        <Iteam v-bind=\"$attrs\"></Iteam>\r\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n     import Iteam from \"./Iteam.vue\";\r\n"
+                },
+                {
+                    "date": 1712148474912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n     <ul class=\"todo-List\">\r\n-        <Iteam v-bind=\"$attrs\"></Iteam>\r\n+        <Iteam v-bind=\"$attrs\" @deleteFun=\"deleteFunction\"></Iteam>\r\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n     import Iteam from \"./Iteam.vue\";\r\n"
+                },
+                {
+                    "date": 1712148511484,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n     <ul class=\"todo-List\">\r\n-        <Iteam v-bind=\"$attrs\" @deleteFun=\"deleteFunction\"></Iteam>\r\n+        <Iteam v-bind=\"$attrs\" :deleteFun=\"deleteFunction\"></Iteam>\r\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n     import Iteam from \"./Iteam.vue\";\r\n"
+                },
+                {
+                    "date": 1712148545010,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n     <ul class=\"todo-List\">\r\n-        <Iteam v-bind=\"$attrs\" :deleteFun=\"deleteFunction\"></Iteam>\r\n+        <Iteam v-bind=\"$attrs\" :deleteFun=\"deleteFun\"></Iteam>\r\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n     import Iteam from \"./Iteam.vue\";\r\n"
+                },
+                {
+                    "date": 1712148556613,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n     import Iteam from \"./Iteam.vue\";\r\n+    import {} from ''\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-List{\r\n"
+                },
+                {
+                    "date": 1712148564231,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n     import Iteam from \"./Iteam.vue\";\r\n-    import {} from ''\r\n+    import {} from 'vue'\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-List{\r\n"
+                },
+                {
+                    "date": 1712148570007,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n     import Iteam from \"./Iteam.vue\";\r\n-    import {} from 'vue'\r\n+    import {depor} from 'vue'\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-List{\r\n"
+                },
+                {
+                    "date": 1712148575597,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n     import Iteam from \"./Iteam.vue\";\r\n-    import {depor} from 'vue'\r\n+    import {defineProps} from 'vue'\\(['deleteFun'])\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-List{\r\n"
+                },
+                {
+                    "date": 1712148583427,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,10 @@\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n     import Iteam from \"./Iteam.vue\";\r\n-    import {defineProps} from 'vue'\\(['deleteFun'])\r\n+    import {defineProps} from 'vue'\r\n+    defineProps(['deleteFun'])\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-List{\r\n"
+                },
+                {
+                    "date": 1712149156568,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\r\n     <ul class=\"todo-List\">\r\n-        <Iteam v-bind=\"$attrs\" :deleteFun=\"deleteFun\"></Iteam>\r\n+        <Iteam v-bind=\"$attrs\" :deleteFun=\"deleteFun\" :checkTodo=\"'checkTodo'\"></Iteam>\r\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n     import Iteam from \"./Iteam.vue\";\r\n"
+                },
+                {
+                    "date": 1712149294487,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n     import Iteam from \"./Iteam.vue\";\r\n     import {defineProps} from 'vue'\r\n-    defineProps(['deleteFun'])\r\n+    defineProps(['deleteFun',''])\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-List{\r\n"
+                },
+                {
+                    "date": 1712149316819,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,13 @@\n <template>\r\n     <ul class=\"todo-List\">\r\n-        <Iteam v-bind=\"$attrs\" :deleteFun=\"deleteFun\" :checkTodo=\"'checkTodo'\"></Iteam>\r\n+        <Iteam v-bind=\"$attrs\" :deleteFun=\"deleteFun\" :checkTodo=\"checkTodo'\"></Iteam>\r\n     </ul>\r\n </template>\r\n <script lang=\"ts\" name='List' setup>\r\n     import Iteam from \"./Iteam.vue\";\r\n     import {defineProps} from 'vue'\r\n-    defineProps(['deleteFun',''])\r\n+    defineProps(['deleteFun','checkTodo'])\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-List{\r\n"
+                }
+            ],
+            "date": 1712117845143,
+            "name": "Commit-0",
+            "content": "<template>\r\n    <ul class=\"todo-List\">\r\n        <Iteam v-for=\"todo in todos\" :key=\"todo.id\" :todo='todo'/>\r\n    </ul>\r\n</template>\r\n\r\n</script>\r\n    \r\n<style scoped>\r\n    .todo-List{\r\n        border: 1px solid #ddd;\r\n        padding: 0;\r\n    }\r\n    .todo-List li{\r\n        list-style: none;\r\n        display: flex;    \r\n        justify-content: space-between;\r\n        align-items: center;\r\n        padding: 0 5px;\r\n        border-bottom: 1px solid #ddd;\r\n        height: 35px;\r\n    }\r\n    .todo-List li:hover{\r\n        background-color: #ccc;\r\n    }\r\n    \r\n</style>"
+        }
+    ]
+}

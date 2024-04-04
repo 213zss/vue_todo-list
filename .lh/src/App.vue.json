@@ -1,0 +1,482 @@
+{
+    "sourceFile": "src/App.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 116,
+            "patches": [
+                {
+                    "date": 1712117313841,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1712117444684,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <template>\n \n </template>\n \n-<script lang=\"ts\" name=\"\" setup>\n+<script lang=\"ts\" name=\"App\" setup>\n import {  } from 'vue'\n \n </script>\n \n"
+                },
+                {
+                    "date": 1712117564191,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,5 +8,88 @@\n </script>\n \n <style scoped>\n \n+</style>\n+\n+<template>\n+    <div class=\"container\">\n+        <Header  @add=\"add\"></Header>\n+        <List :todos=\"todos\"></List>\n+        <Footer :todos=\"todos\" @checkAll=\"checkAll\" @clear=\"clear\"></Footer>\n+    </div>\n+</template>\n+<script>\n+import Header from './components/Header.vue';\n+import List from './components/List.vue';\n+import Footer from './components/Footer.vue';\n+\n+\n+   export default{\n+        name:'App',\n+        components:{\n+            Header,\n+            List,\n+            Footer\n+        },\n+        data(){\n+            return{\n+                todos: JSON.parse(localStorage.getItem('todos'))\n+            }\n+        },\n+       methods:{\n+            add(todo){\n+                this.todos.push(todo)\n+            },\n+            check(id){\n+                this.todos.forEach((todo)=>{\n+                    if(todo.id===id) todo.done=!todo.done\n+                })\n+            },\n+            checkAll(done){\n+                this.todos.forEach((todo)=>{\n+                    todo.done=done\n+                })\n+            },\n+            clear(){\n+                this.todos=this.todos.filter((todo)=>{\n+                    return !todo.done\n+                })\n+            },\n+            move(id){\n+                this.todos=this.todos.filter((todo)=>{\n+                    return todo.id!=id\n+                })\n+            }\n+\n+       },\n+       watch:{\n+            \n+            todos:{\n+                deep:true,\n+                handler(value){\n+                this.todos=value,\n+                localStorage.setItem('todos',JSON.stringify(this.todos))\n+            \n+                }\n+            },\n+       },\n+       mounted(){\n+            this.$bus.$on('check',this.check)\n+            this.$bus.$on('move',this.move)\n+\n+        },\n+        beforeDestroy(){\n+            this.$bus.$off('check')\n+            this.$bus.$off('move')\n+\n+        }\n+    }\n+</script>\n+    \n+<style>\n+    .container{\n+        display: inline-block;\n+        border: 1px solid #aaa;\n+        padding: 15px;\n+    }\n </style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712117578566,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n <template>\n \n </template>\n \n-<script lang=\"ts\" name=\"App\" setup>\n import {  } from 'vue'\n \n </script>\n \n"
+                },
+                {
+                    "date": 1712117584426,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,82 @@\n+<template>\n+    <div class=\"container\">\n+        <Header  @add=\"add\"></Header>\n+        <List :todos=\"todos\"></List>\n+        <Footer :todos=\"todos\" @checkAll=\"checkAll\" @clear=\"clear\"></Footer>\n+    </div>\n+</template>\n+<script>\n+import Header from './components/Header.vue';\n+import List from './components/List.vue';\n+import Footer from './components/Footer.vue';\n+\n+\n+   export default{\n+        name:'App',\n+        components:{\n+            Header,\n+            List,\n+            Footer\n+        },\n+        data(){\n+            return{\n+                todos: JSON.parse(localStorage.getItem('todos'))\n+            }\n+        },\n+       methods:{\n+            add(todo){\n+                this.todos.push(todo)\n+            },\n+            check(id){\n+                this.todos.forEach((todo)=>{\n+                    if(todo.id===id) todo.done=!todo.done\n+                })\n+            },\n+            checkAll(done){\n+                this.todos.forEach((todo)=>{\n+                    todo.done=done\n+                })\n+            },\n+            clear(){\n+                this.todos=this.todos.filter((todo)=>{\n+                    return !todo.done\n+                })\n+            },\n+            move(id){\n+                this.todos=this.todos.filter((todo)=>{\n+                    return todo.id!=id\n+                })\n+            }\n+\n+       },\n+       watch:{\n+            \n+            todos:{\n+                deep:true,\n+                handler(value){\n+                this.todos=value,\n+                localStorage.setItem('todos',JSON.stringify(this.todos))\n+            \n+                }\n+            },\n+       },\n+       mounted(){\n+            this.$bus.$on('check',this.check)\n+            this.$bus.$on('move',this.move)\n+\n+        },\n+        beforeDestroy(){\n+            this.$bus.$off('check')\n+            this.$bus.$off('move')\n+\n+        }\n+    }\n+</script>\n+    \n+<style>\n+    .container{\n+        display: inline-block;\n+        border: 1px solid #aaa;\n+        padding: 15px;\n+    }\n+</style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712117590618,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,82 @@\n+<template>\n+    <div class=\"container\">\n+        <Header  @add=\"add\"></Header>\n+        <List :todos=\"todos\"></List>\n+        <Footer :todos=\"todos\" @checkAll=\"checkAll\" @clear=\"clear\"></Footer>\n+    </div>\n+</template>\n+<script \n+import Header from './components/Header.vue';\n+import List from './components/List.vue';\n+import Footer from './components/Footer.vue';\n+\n+\n+   export default{\n+        name:'App',\n+        components:{\n+            Header,\n+            List,\n+            Footer\n+        },\n+        data(){\n+            return{\n+                todos: JSON.parse(localStorage.getItem('todos'))\n+            }\n+        },\n+       methods:{\n+            add(todo){\n+                this.todos.push(todo)\n+            },\n+            check(id){\n+                this.todos.forEach((todo)=>{\n+                    if(todo.id===id) todo.done=!todo.done\n+                })\n+            },\n+            checkAll(done){\n+                this.todos.forEach((todo)=>{\n+                    todo.done=done\n+                })\n+            },\n+            clear(){\n+                this.todos=this.todos.filter((todo)=>{\n+                    return !todo.done\n+                })\n+            },\n+            move(id){\n+                this.todos=this.todos.filter((todo)=>{\n+                    return todo.id!=id\n+                })\n+            }\n+\n+       },\n+       watch:{\n+            \n+            todos:{\n+                deep:true,\n+                handler(value){\n+                this.todos=value,\n+                localStorage.setItem('todos',JSON.stringify(this.todos))\n+            \n+                }\n+            },\n+       },\n+       mounted(){\n+            this.$bus.$on('check',this.check)\n+            this.$bus.$on('move',this.move)\n+\n+        },\n+        beforeDestroy(){\n+            this.$bus.$off('check')\n+            this.$bus.$off('move')\n+\n+        }\n+    }\n+</script>\n+    \n+<style>\n+    .container{\n+        display: inline-block;\n+        border: 1px solid #aaa;\n+        padding: 15px;\n+    }\n+</style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712117603443,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,83 @@\n+<template>\n+    <div class=\"container\">\n+        <Header  @add=\"add\"></Header>\n+        <List :todos=\"todos\"></List>\n+        <Footer :todos=\"todos\" @checkAll=\"checkAll\" @clear=\"clear\"></Footer>\n+    </div>\n+</template>\n+\n+<script lang=\"ts\" name=\"App\" setup>\n+import Header from './components/Header.vue';\n+import List from './components/List.vue';\n+import Footer from './components/Footer.vue';\n+\n+\n+//    export default{\n+//         name:'App',\n+//         components:{\n+//             Header,\n+//             List,\n+//             Footer\n+//         },\n+//         data(){\n+//             return{\n+//                 todos: JSON.parse(localStorage.getItem('todos'))\n+//             }\n+//         },\n+//        methods:{\n+//             add(todo){\n+//                 this.todos.push(todo)\n+//             },\n+//             check(id){\n+//                 this.todos.forEach((todo)=>{\n+//                     if(todo.id===id) todo.done=!todo.done\n+//                 })\n+//             },\n+//             checkAll(done){\n+//                 this.todos.forEach((todo)=>{\n+//                     todo.done=done\n+//                 })\n+//             },\n+//             clear(){\n+//                 this.todos=this.todos.filter((todo)=>{\n+//                     return !todo.done\n+//                 })\n+//             },\n+//             move(id){\n+//                 this.todos=this.todos.filter((todo)=>{\n+//                     return todo.id!=id\n+//                 })\n+//             }\n+\n+//        },\n+//        watch:{\n+            \n+//             todos:{\n+//                 deep:true,\n+//                 handler(value){\n+//                 this.todos=value,\n+//                 localStorage.setItem('todos',JSON.stringify(this.todos))\n+            \n+//                 }\n+//             },\n+//        },\n+//        mounted(){\n+//             this.$bus.$on('check',this.check)\n+//             this.$bus.$on('move',this.move)\n+\n+//         },\n+//         beforeDestroy(){\n+//             this.$bus.$off('check')\n+//             this.$bus.$off('move')\n+\n+//         }\n+//     }\n+</script>\n+    \n+<style>\n+    .container{\n+        display: inline-block;\n+        border: 1px solid #aaa;\n+        padding: 15px;\n+    }\n+</style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712117684213,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,11 @@\n     <div class=\"container\">\n         <Header  @add=\"add\"></Header>\n         <List :todos=\"todos\"></List>\n         <Footer :todos=\"todos\" @checkAll=\"checkAll\" @clear=\"clear\"></Footer>\n+        <Header  @add=\"add\"></Header>\n+        <List :todos=\"todos\"></List>\n+        <Footer :todos=\"todos\" @checkAll=\"checkAll\" @clear=\"clear\"></Footer>\n     </div>\n </template>\n \n <script lang=\"ts\" name=\"App\" setup>\n@@ -79,263 +82,5 @@\n         display: inline-block;\n         border: 1px solid #aaa;\n         padding: 15px;\n     }\n-</style>\n-<template>\n-    <div class=\"container\">\n-        <Header  @add=\"add\"></Header>\n-        <List :todos=\"todos\"></List>\n-        <Footer :todos=\"todos\" @checkAll=\"checkAll\" @clear=\"clear\"></Footer>\n-    </div>\n-</template>\n-<script \n-import Header from './components/Header.vue';\n-import List from './components/List.vue';\n-import Footer from './components/Footer.vue';\n-\n-\n-   export default{\n-        name:'App',\n-        components:{\n-            Header,\n-            List,\n-            Footer\n-        },\n-        data(){\n-            return{\n-                todos: JSON.parse(localStorage.getItem('todos'))\n-            }\n-        },\n-       methods:{\n-            add(todo){\n-                this.todos.push(todo)\n-            },\n-            check(id){\n-                this.todos.forEach((todo)=>{\n-                    if(todo.id===id) todo.done=!todo.done\n-                })\n-            },\n-            checkAll(done){\n-                this.todos.forEach((todo)=>{\n-                    todo.done=done\n-                })\n-            },\n-            clear(){\n-                this.todos=this.todos.filter((todo)=>{\n-                    return !todo.done\n-                })\n-            },\n-            move(id){\n-                this.todos=this.todos.filter((todo)=>{\n-                    return todo.id!=id\n-                })\n-            }\n-\n-       },\n-       watch:{\n-            \n-            todos:{\n-                deep:true,\n-                handler(value){\n-                this.todos=value,\n-                localStorage.setItem('todos',JSON.stringify(this.todos))\n-            \n-                }\n-            },\n-       },\n-       mounted(){\n-            this.$bus.$on('check',this.check)\n-            this.$bus.$on('move',this.move)\n-\n-        },\n-        beforeDestroy(){\n-            this.$bus.$off('check')\n-            this.$bus.$off('move')\n-\n-        }\n-    }\n-</script>\n-    \n-<style>\n-    .container{\n-        display: inline-block;\n-        border: 1px solid #aaa;\n-        padding: 15px;\n-    }\n-</style>\n-<template>\n-    <div class=\"container\">\n-        <Header  @add=\"add\"></Header>\n-        <List :todos=\"todos\"></List>\n-        <Footer :todos=\"todos\" @checkAll=\"checkAll\" @clear=\"clear\"></Footer>\n-    </div>\n-</template>\n-<script>\n-import Header from './components/Header.vue';\n-import List from './components/List.vue';\n-import Footer from './components/Footer.vue';\n-\n-\n-   export default{\n-        name:'App',\n-        components:{\n-            Header,\n-            List,\n-            Footer\n-        },\n-        data(){\n-            return{\n-                todos: JSON.parse(localStorage.getItem('todos'))\n-            }\n-        },\n-       methods:{\n-            add(todo){\n-                this.todos.push(todo)\n-            },\n-            check(id){\n-                this.todos.forEach((todo)=>{\n-                    if(todo.id===id) todo.done=!todo.done\n-                })\n-            },\n-            checkAll(done){\n-                this.todos.forEach((todo)=>{\n-                    todo.done=done\n-                })\n-            },\n-            clear(){\n-                this.todos=this.todos.filter((todo)=>{\n-                    return !todo.done\n-                })\n-            },\n-            move(id){\n-                this.todos=this.todos.filter((todo)=>{\n-                    return todo.id!=id\n-                })\n-            }\n-\n-       },\n-       watch:{\n-            \n-            todos:{\n-                deep:true,\n-                handler(value){\n-                this.todos=value,\n-                localStorage.setItem('todos',JSON.stringify(this.todos))\n-            \n-                }\n-            },\n-       },\n-       mounted(){\n-            this.$bus.$on('check',this.check)\n-            this.$bus.$on('move',this.move)\n-\n-        },\n-        beforeDestroy(){\n-            this.$bus.$off('check')\n-            this.$bus.$off('move')\n-\n-        }\n-    }\n-</script>\n-    \n-<style>\n-    .container{\n-        display: inline-block;\n-        border: 1px solid #aaa;\n-        padding: 15px;\n-    }\n-</style>\n-<template>\n-\n-</template>\n-\n-import {  } from 'vue'\n-\n-</script>\n-\n-<style scoped>\n-\n-</style>\n-\n-<template>\n-    <div class=\"container\">\n-        <Header  @add=\"add\"></Header>\n-        <List :todos=\"todos\"></List>\n-        <Footer :todos=\"todos\" @checkAll=\"checkAll\" @clear=\"clear\"></Footer>\n-    </div>\n-</template>\n-<script>\n-import Header from './components/Header.vue';\n-import List from './components/List.vue';\n-import Footer from './components/Footer.vue';\n-\n-\n-   export default{\n-        name:'App',\n-        components:{\n-            Header,\n-            List,\n-            Footer\n-        },\n-        data(){\n-            return{\n-                todos: JSON.parse(localStorage.getItem('todos'))\n-            }\n-        },\n-       methods:{\n-            add(todo){\n-                this.todos.push(todo)\n-            },\n-            check(id){\n-                this.todos.forEach((todo)=>{\n-                    if(todo.id===id) todo.done=!todo.done\n-                })\n-            },\n-            checkAll(done){\n-                this.todos.forEach((todo)=>{\n-                    todo.done=done\n-                })\n-            },\n-            clear(){\n-                this.todos=this.todos.filter((todo)=>{\n-                    return !todo.done\n-                })\n-            },\n-            move(id){\n-                this.todos=this.todos.filter((todo)=>{\n-                    return todo.id!=id\n-                })\n-            }\n-\n-       },\n-       watch:{\n-            \n-            todos:{\n-                deep:true,\n-                handler(value){\n-                this.todos=value,\n-                localStorage.setItem('todos',JSON.stringify(this.todos))\n-            \n-                }\n-            },\n-       },\n-       mounted(){\n-            this.$bus.$on('check',this.check)\n-            this.$bus.$on('move',this.move)\n-\n-        },\n-        beforeDestroy(){\n-            this.$bus.$off('check')\n-            this.$bus.$off('move')\n-\n-        }\n-    }\n-</script>\n-    \n-<style>\n-    .container{\n-        display: inline-block;\n-        border: 1px solid #aaa;\n-        padding: 15px;\n-    }\n </style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712117689535,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,12 @@\n <template>\n     <div class=\"container\">\n-        <Header  @add=\"add\"></Header>\n+        <Header></Header>\n         <List :todos=\"todos\"></List>\n         <Footer :todos=\"todos\" @checkAll=\"checkAll\" @clear=\"clear\"></Footer>\n-        <Header  @add=\"add\"></Header>\n+        <!-- <Header  @add=\"add\"></Header>\n         <List :todos=\"todos\"></List>\n-        <Footer :todos=\"todos\" @checkAll=\"checkAll\" @clear=\"clear\"></Footer>\n+        <Footer :todos=\"todos\" @checkAll=\"checkAll\" @clear=\"clear\"></Footer> -->\n     </div>\n </template>\n \n <script lang=\"ts\" name=\"App\" setup>\n"
+                },
+                {
+                    "date": 1712117796538,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <template>\n     <div class=\"container\">\n         <Header></Header>\n-        <List :todos=\"todos\"></List>\n-        <Footer :todos=\"todos\" @checkAll=\"checkAll\" @clear=\"clear\"></Footer>\n+        <List></List>\n+        <Footer></Footer>\n         <!-- <Header  @add=\"add\"></Header>\n         <List :todos=\"todos\"></List>\n         <Footer :todos=\"todos\" @checkAll=\"checkAll\" @clear=\"clear\"></Footer> -->\n     </div>\n@@ -14,68 +14,8 @@\n import List from './components/List.vue';\n import Footer from './components/Footer.vue';\n \n \n-//    export default{\n-//         name:'App',\n-//         components:{\n-//             Header,\n-//             List,\n-//             Footer\n-//         },\n-//         data(){\n-//             return{\n-//                 todos: JSON.parse(localStorage.getItem('todos'))\n-//             }\n-//         },\n-//        methods:{\n-//             add(todo){\n-//                 this.todos.push(todo)\n-//             },\n-//             check(id){\n-//                 this.todos.forEach((todo)=>{\n-//                     if(todo.id===id) todo.done=!todo.done\n-//                 })\n-//             },\n-//             checkAll(done){\n-//                 this.todos.forEach((todo)=>{\n-//                     todo.done=done\n-//                 })\n-//             },\n-//             clear(){\n-//                 this.todos=this.todos.filter((todo)=>{\n-//                     return !todo.done\n-//                 })\n-//             },\n-//             move(id){\n-//                 this.todos=this.todos.filter((todo)=>{\n-//                     return todo.id!=id\n-//                 })\n-//             }\n-\n-//        },\n-//        watch:{\n-            \n-//             todos:{\n-//                 deep:true,\n-//                 handler(value){\n-//                 this.todos=value,\n-//                 localStorage.setItem('todos',JSON.stringify(this.todos))\n-            \n-//                 }\n-//             },\n-//        },\n-//        mounted(){\n-//             this.$bus.$on('check',this.check)\n-//             this.$bus.$on('move',this.move)\n-\n-//         },\n-//         beforeDestroy(){\n-//             this.$bus.$off('check')\n-//             this.$bus.$off('move')\n-\n-//         }\n-//     }\n </script>\n     \n <style>\n     .container{\n"
+                },
+                {
+                    "date": 1712117888803,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,11 +2,8 @@\n     <div class=\"container\">\n         <Header></Header>\n         <List></List>\n         <Footer></Footer>\n-        <!-- <Header  @add=\"add\"></Header>\n-        <List :todos=\"todos\"></List>\n-        <Footer :todos=\"todos\" @checkAll=\"checkAll\" @clear=\"clear\"></Footer> -->\n     </div>\n </template>\n \n <script lang=\"ts\" name=\"App\" setup>\n"
+                },
+                {
+                    "date": 1712144578343,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\n     <div class=\"container\">\n-        <Header></Header>\n+        <Header ></Header>\n         <List></List>\n         <Footer></Footer>\n     </div>\n </template>\n"
+                },
+                {
+                    "date": 1712144596848,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\n     <div class=\"container\">\n-        <Header ></Header>\n+        <Header @sendList=\"getList\"></Header>\n         <List></List>\n         <Footer></Footer>\n     </div>\n </template>\n"
+                },
+                {
+                    "date": 1712144602962,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,10 @@\n <script lang=\"ts\" name=\"App\" setup>\n import Header from './components/Header.vue';\n import List from './components/List.vue';\n import Footer from './components/Footer.vue';\n+func\n \n-\n </script>\n     \n <style>\n     .container{\n"
+                },
+                {
+                    "date": 1712144609275,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,12 @@\n <script lang=\"ts\" name=\"App\" setup>\n import Header from './components/Header.vue';\n import List from './components/List.vue';\n import Footer from './components/Footer.vue';\n-func\n+function getList(val:){\n \n+}\n+\n </script>\n     \n <style>\n     .container{\n"
+                },
+                {
+                    "date": 1712144617655,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n <script lang=\"ts\" name=\"App\" setup>\n import Header from './components/Header.vue';\n import List from './components/List.vue';\n import Footer from './components/Footer.vue';\n-function getList(val:){\n+function getList(val:Array){\n \n }\n \n </script>\n"
+                },
+                {
+                    "date": 1712144623807,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n <script lang=\"ts\" name=\"App\" setup>\n import Header from './components/Header.vue';\n import List from './components/List.vue';\n import Footer from './components/Footer.vue';\n-function getList(val:Array){\n+function getList(val:Array<object){\n \n }\n \n </script>\n"
+                },
+                {
+                    "date": 1712144633139,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,10 @@\n <script lang=\"ts\" name=\"App\" setup>\n import Header from './components/Header.vue';\n import List from './components/List.vue';\n import Footer from './components/Footer.vue';\n-function getList(val:Array<object){\n-\n+function getList(val:Array<object>){\n+    log\n }\n \n </script>\n     \n"
+                },
+                {
+                    "date": 1712144638709,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,10 @@\n import Header from './components/Header.vue';\n import List from './components/List.vue';\n import Footer from './components/Footer.vue';\n function getList(val:Array<object>){\n-    log\n+    console.log(val);\n+    \n }\n \n </script>\n     \n"
+                },
+                {
+                    "date": 1712144666348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\n     <div class=\"container\">\n-        <Header @sendList=\"getList\"></Header>\n+        <Header @send-List=\"getList\"></Header>\n         <List></List>\n         <Footer></Footer>\n     </div>\n </template>\n"
+                },
+                {
+                    "date": 1712144835296,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\n     <div class=\"container\">\n-        <Header @send-List=\"getList\"></Header>\n+        <Header @send-list=\"getList\"></Header>\n         <List></List>\n         <Footer></Footer>\n     </div>\n </template>\n@@ -11,9 +11,8 @@\n import List from './components/List.vue';\n import Footer from './components/Footer.vue';\n function getList(val:Array<object>){\n     console.log(val);\n-    \n }\n \n </script>\n     \n"
+                },
+                {
+                    "date": 1712144878417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\n     <div class=\"container\">\n         <Header @send-list=\"getList\"></Header>\n-        <List></List>\n+        <List ></List>\n         <Footer></Footer>\n     </div>\n </template>\n \n"
+                },
+                {
+                    "date": 1712144883736,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\n     <div class=\"container\">\n         <Header @send-list=\"getList\"></Header>\n-        <List ></List>\n+        <List :list=\"list\"></List>\n         <Footer></Footer>\n     </div>\n </template>\n \n"
+                },
+                {
+                    "date": 1712144890654,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n import Header from './components/Header.vue';\n import List from './components/List.vue';\n import Footer from './components/Footer.vue';\n function getList(val:Array<object>){\n-    console.log(val);\n+    let l\n }\n \n </script>\n     \n"
+                },
+                {
+                    "date": 1712144906372,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n import Header from './components/Header.vue';\n import List from './components/List.vue';\n import Footer from './components/Footer.vue';\n function getList(val:Array<object>){\n-    let l\n+    let list=re\n }\n \n </script>\n     \n"
+                },
+                {
+                    "date": 1712144932658,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,12 @@\n <script lang=\"ts\" name=\"App\" setup>\n import Header from './components/Header.vue';\n import List from './components/List.vue';\n import Footer from './components/Footer.vue';\n+import { reactive } from 'vue';\n+let list\n function getList(val:Array<object>){\n-    let list=re\n+    let list=reactive(val)\n }\n \n </script>\n     \n"
+                },
+                {
+                    "date": 1712144940284,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n import Header from './components/Header.vue';\n import List from './components/List.vue';\n import Footer from './components/Footer.vue';\n import { reactive } from 'vue';\n-let list\n+let list=reactive<object[]>([])\n function getList(val:Array<object>){\n     let list=reactive(val)\n }\n \n"
+                },
+                {
+                    "date": 1712145018023,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,10 @@\n import Footer from './components/Footer.vue';\n import { reactive } from 'vue';\n let list=reactive<object[]>([])\n function getList(val:Array<object>){\n-    let list=reactive(val)\n+    list=reactive(val)\n+    log\n }\n \n </script>\n     \n"
+                },
+                {
+                    "date": 1712145129681,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,11 +11,15 @@\n import List from './components/List.vue';\n import Footer from './components/Footer.vue';\n import { reactive } from 'vue';\n let list=reactive<object[]>([])\n+function saveData(){\n+    \n+}\n function getList(val:Array<object>){\n     list=reactive(val)\n-    log\n+    console.log(list);\n+    \n }\n \n </script>\n     \n"
+                },
+                {
+                    "date": 1712145143023,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n import Footer from './components/Footer.vue';\n import { reactive } from 'vue';\n let list=reactive<object[]>([])\n function saveData(){\n-    \n+    localStorage.setItem('commentList')\n }\n function getList(val:Array<object>){\n     list=reactive(val)\n     console.log(list);\n"
+                },
+                {
+                    "date": 1712145150718,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n import Footer from './components/Footer.vue';\n import { reactive } from 'vue';\n let list=reactive<object[]>([])\n function saveData(){\n-    localStorage.setItem('commentList')\n+    localStorage.setItem('commentList',JSON.stringify(list))\n }\n function getList(val:Array<object>){\n     list=reactive(val)\n     console.log(list);\n"
+                },
+                {
+                    "date": 1712145158247,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n }\n function getList(val:Array<object>){\n     list=reactive(val)\n     console.log(list);\n-    \n+    saveData()\n }\n \n </script>\n     \n"
+                },
+                {
+                    "date": 1712145307716,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\n     <div class=\"container\">\n         <Header @send-list=\"getList\"></Header>\n-        <List :list=\"list\"></List>\n+        <List :list=\"aaa\"></List>\n         <Footer></Footer>\n     </div>\n </template>\n \n"
+                },
+                {
+                    "date": 1712145324855,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\n     <div class=\"container\">\n         <Header @send-list=\"getList\"></Header>\n-        <List :list=\"aaa\"></List>\n+        <List :list=\"list\"></List>\n         <Footer></Footer>\n     </div>\n </template>\n \n@@ -15,9 +15,9 @@\n function saveData(){\n     localStorage.setItem('commentList',JSON.stringify(list))\n }\n function getList(val:Array<object>){\n-    list=reactive(val)\n+    let list=reactive(val)\n     console.log(list);\n     saveData()\n }\n \n"
+                },
+                {
+                    "date": 1712145439653,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,12 +10,18 @@\n import Header from './components/Header.vue';\n import List from './components/List.vue';\n import Footer from './components/Footer.vue';\n import { reactive } from 'vue';\n-let list=reactive<object[]>([])\n+// let list=reactive<object[]>([])\n function saveData(){\n     localStorage.setItem('commentList',JSON.stringify(list))\n }\n+function loadData(){\n+  let allComment=localStorage.getItem('commentList')\n+    if(allComment){\n+      commentList=reactive(JSON.parse(allComment))\n+    }\n+}\n function getList(val:Array<object>){\n     let list=reactive(val)\n     console.log(list);\n     saveData()\n"
+                },
+                {
+                    "date": 1712145459348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,12 +12,12 @@\n import Footer from './components/Footer.vue';\n import { reactive } from 'vue';\n // let list=reactive<object[]>([])\n function saveData(){\n-    localStorage.setItem('commentList',JSON.stringify(list))\n+    localStorage.setItem('todoList',JSON.stringify(list))\n }\n function loadData(){\n-  let allComment=localStorage.getItem('commentList')\n+  let list=localStorage.getItem('commentList')\n     if(allComment){\n       commentList=reactive(JSON.parse(allComment))\n     }\n }\n"
+                },
+                {
+                    "date": 1712145465525,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,11 +15,11 @@\n function saveData(){\n     localStorage.setItem('todoList',JSON.stringify(list))\n }\n function loadData(){\n-  let list=localStorage.getItem('commentList')\n-    if(allComment){\n-      commentList=reactive(JSON.parse(allComment))\n+  let list=localStorage.getItem('todoList')\n+    if(list){\n+        list=reactive(JSON.parse(allComment))\n     }\n }\n function getList(val:Array<object>){\n     let list=reactive(val)\n"
+                },
+                {
+                    "date": 1712145481144,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,10 +16,10 @@\n     localStorage.setItem('todoList',JSON.stringify(list))\n }\n function loadData(){\n   let list=localStorage.getItem('todoList')\n-    if(list){\n-        list=reactive(JSON.parse(allComment))\n+    if(allComment){\n+      commentList=reactive(JSON.parse(allComment))\n     }\n }\n function getList(val:Array<object>){\n     let list=reactive(val)\n"
+                },
+                {
+                    "date": 1712145499506,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,14 +10,14 @@\n import Header from './components/Header.vue';\n import List from './components/List.vue';\n import Footer from './components/Footer.vue';\n import { reactive } from 'vue';\n-// let list=reactive<object[]>([])\n+let list=reactive<object[]>([])\n function saveData(){\n-    localStorage.setItem('todoList',JSON.stringify(list))\n+    localStorage.setItem('commentList',JSON.stringify(list))\n }\n function loadData(){\n-  let list=localStorage.getItem('todoList')\n+  let allComment=localStorage.getItem('commentList')\n     if(allComment){\n       commentList=reactive(JSON.parse(allComment))\n     }\n }\n"
+                },
+                {
+                    "date": 1712145511566,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,11 +15,11 @@\n function saveData(){\n     localStorage.setItem('commentList',JSON.stringify(list))\n }\n function loadData(){\n-  let allComment=localStorage.getItem('commentList')\n+  let allComment=localStorage.getItem('list')\n     if(allComment){\n-      commentList=reactive(JSON.parse(allComment))\n+      list=reactive(JSON.parse(allComment))\n     }\n }\n function getList(val:Array<object>){\n     let list=reactive(val)\n"
+                },
+                {
+                    "date": 1712145517278,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n function saveData(){\n     localStorage.setItem('commentList',JSON.stringify(list))\n }\n function loadData(){\n-  let allComment=localStorage.getItem('list')\n+  let allList=localStorage.getItem('list')\n     if(allComment){\n       list=reactive(JSON.parse(allComment))\n     }\n }\n"
+                },
+                {
+                    "date": 1712145538312,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,12 +16,16 @@\n     localStorage.setItem('commentList',JSON.stringify(list))\n }\n function loadData(){\n   let allList=localStorage.getItem('list')\n-    if(allComment){\n-      list=reactive(JSON.parse(allComment))\n+    if(allList){\n+      list=reactive(JSON.parse(allList))\n     }\n }\n+onBeforeMount(()=>{\n+  loadData()\n+})\n+\n function getList(val:Array<object>){\n     let list=reactive(val)\n     console.log(list);\n     saveData()\n"
+                },
+                {
+                    "date": 1712145561174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n <script lang=\"ts\" name=\"App\" setup>\n import Header from './components/Header.vue';\n import List from './components/List.vue';\n import Footer from './components/Footer.vue';\n-import { reactive } from 'vue';\n+import { reactive,onBeforeMount } from 'vue';\n let list=reactive<object[]>([])\n function saveData(){\n     localStorage.setItem('commentList',JSON.stringify(list))\n }\n@@ -24,9 +24,9 @@\n onBeforeMount(()=>{\n   loadData()\n })\n \n-function getList(val:Array<object>){\n+function getList(val:object){\n     let list=reactive(val)\n     console.log(list);\n     saveData()\n }\n"
+                },
+                {
+                    "date": 1712145580490,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n   loadData()\n })\n \n function getList(val:object){\n-    let list=reactive(val)\n+    let a=reactive(val)\n     console.log(list);\n     saveData()\n }\n \n"
+                },
+                {
+                    "date": 1712145587211,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,24 +11,24 @@\n import List from './components/List.vue';\n import Footer from './components/Footer.vue';\n import { reactive,onBeforeMount } from 'vue';\n let list=reactive<object[]>([])\n-function saveData(){\n-    localStorage.setItem('commentList',JSON.stringify(list))\n-}\n-function loadData(){\n-  let allList=localStorage.getItem('list')\n-    if(allList){\n-      list=reactive(JSON.parse(allList))\n-    }\n-}\n-onBeforeMount(()=>{\n-  loadData()\n-})\n+// function saveData(){\n+//     localStorage.setItem('commentList',JSON.stringify(list))\n+// }\n+// function loadData(){\n+//   let allList=localStorage.getItem('list')\n+//     if(allList){\n+//       list=reactive(JSON.parse(allList))\n+//     }\n+// }\n+// onBeforeMount(()=>{\n+//   loadData()\n+// })\n \n function getList(val:object){\n     let a=reactive(val)\n-    console.log(list);\n+    console.log(a);\n     saveData()\n }\n \n </script>\n"
+                },
+                {
+                    "date": 1712145631510,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,20 +11,20 @@\n import List from './components/List.vue';\n import Footer from './components/Footer.vue';\n import { reactive,onBeforeMount } from 'vue';\n let list=reactive<object[]>([])\n-// function saveData(){\n-//     localStorage.setItem('commentList',JSON.stringify(list))\n-// }\n-// function loadData(){\n-//   let allList=localStorage.getItem('list')\n-//     if(allList){\n-//       list=reactive(JSON.parse(allList))\n-//     }\n-// }\n-// onBeforeMount(()=>{\n-//   loadData()\n-// })\n+function saveData(){\n+    localStorage.setItem('commentList',JSON.stringify(list))\n+}\n+function loadData(){\n+  let allList=localStorage.getItem('list')\n+    if(allList){\n+      list=reactive(JSON.parse(allList))\n+    }\n+}\n+onBeforeMount(()=>{\n+  loadData()\n+})\n \n function getList(val:object){\n     let a=reactive(val)\n     console.log(a);\n"
+                },
+                {
+                    "date": 1712145654681,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,10 +25,9 @@\n   loadData()\n })\n \n function getList(val:object){\n-    let a=reactive(val)\n-    console.log(a);\n+    let =reactive(val)\n     saveData()\n }\n \n </script>\n"
+                },
+                {
+                    "date": 1712145665542,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n   loadData()\n })\n \n function getList(val:object){\n-    let =reactive(val)\n+    list=reactive(val)\n     saveData()\n }\n \n </script>\n"
+                },
+                {
+                    "date": 1712145676213,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n onBeforeMount(()=>{\n   loadData()\n })\n \n-function getList(val:object){\n+function getList(val:<>object){\n     list=reactive(val)\n     saveData()\n }\n \n"
+                },
+                {
+                    "date": 1712145683243,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,10 +24,11 @@\n onBeforeMount(()=>{\n   loadData()\n })\n \n-function getList(val:<>object){\n-    list=reactive(val)\n+function getList(valobj){\n+    let list=reactive(val)\n+    console.log(list);\n     saveData()\n }\n \n </script>\n"
+                },
+                {
+                    "date": 1712145688719,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,10 +24,10 @@\n onBeforeMount(()=>{\n   loadData()\n })\n \n-function getList(valobj){\n-    let list=reactive(val)\n+function getList(val:Array<object>){\n+    list=reactive(val)\n     console.log(list);\n     saveData()\n }\n \n"
+                },
+                {
+                    "date": 1712145763771,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,16 +19,17 @@\n   let allList=localStorage.getItem('list')\n     if(allList){\n       list=reactive(JSON.parse(allList))\n     }\n+    console.log(list);\n+    \n }\n onBeforeMount(()=>{\n   loadData()\n })\n \n function getList(val:Array<object>){\n     list=reactive(val)\n-    console.log(list);\n     saveData()\n }\n \n </script>\n"
+                },
+                {
+                    "date": 1712145782819,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,11 +15,11 @@\n function saveData(){\n     localStorage.setItem('commentList',JSON.stringify(list))\n }\n function loadData(){\n-  let allList=localStorage.getItem('list')\n+    let allList=localStorage.getItem('list')\n     if(allList){\n-      list=reactive(JSON.parse(allList))\n+        list=reactive(JSON.parse(allList))\n     }\n     console.log(list);\n     \n }\n"
+                },
+                {
+                    "date": 1712145834194,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,8 +28,9 @@\n })\n \n function getList(val:Array<object>){\n     list=reactive(val)\n+    log\n     saveData()\n }\n \n </script>\n"
+                },
+                {
+                    "date": 1712145840565,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,10 +28,11 @@\n })\n \n function getList(val:Array<object>){\n     list=reactive(val)\n-    log\n-    saveData()\n+    console.log(list);\n+    \n+    // saveData()\n }\n \n </script>\n     \n"
+                },
+                {
+                    "date": 1712145868939,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,15 +23,14 @@\n     console.log(list);\n     \n }\n onBeforeMount(()=>{\n-  loadData()\n+//   loadData()\n })\n \n function getList(val:Array<object>){\n     list=reactive(val)\n     console.log(list);\n-    \n     // saveData()\n }\n \n </script>\n"
+                },
+                {
+                    "date": 1712145908277,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,12 +16,12 @@\n     localStorage.setItem('commentList',JSON.stringify(list))\n }\n function loadData(){\n     let allList=localStorage.getItem('list')\n-    if(allList){\n-        list=reactive(JSON.parse(allList))\n-    }\n-    console.log(list);\n+    // if(allList){\n+    //     list=reactive(JSON.parse(allList))\n+    // }\n+    // console.log(list);\n     \n }\n onBeforeMount(()=>{\n //   loadData()\n@@ -29,9 +29,9 @@\n \n function getList(val:Array<object>){\n     list=reactive(val)\n     console.log(list);\n-    // saveData()\n+    saveData()\n }\n \n </script>\n     \n"
+                },
+                {
+                    "date": 1712145915979,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n     localStorage.setItem('commentList',JSON.stringify(list))\n }\n function loadData(){\n     let allList=localStorage.getItem('list')\n+    log\n     // if(allList){\n     //     list=reactive(JSON.parse(allList))\n     // }\n     // console.log(list);\n"
+                },
+                {
+                    "date": 1712145924729,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,15 +16,17 @@\n     localStorage.setItem('commentList',JSON.stringify(list))\n }\n function loadData(){\n     let allList=localStorage.getItem('list')\n-    log\n+    console.log(allList);\n+    \n     // if(allList){\n     //     list=reactive(JSON.parse(allList))\n     // }\n     // console.log(list);\n     \n }\n+loadData\n onBeforeMount(()=>{\n //   loadData()\n })\n \n"
+                },
+                {
+                    "date": 1712145944847,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n import Footer from './components/Footer.vue';\n import { reactive,onBeforeMount } from 'vue';\n let list=reactive<object[]>([])\n function saveData(){\n-    localStorage.setItem('commentList',JSON.stringify(list))\n+    localStorage.setItem('todoList',JSON.stringify(list))\n }\n function loadData(){\n     let allList=localStorage.getItem('list')\n     console.log(allList);\n@@ -24,9 +24,9 @@\n     // }\n     // console.log(list);\n     \n }\n-loadData\n+loadData();\n onBeforeMount(()=>{\n //   loadData()\n })\n \n"
+                },
+                {
+                    "date": 1712145967927,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,18 +15,18 @@\n function saveData(){\n     localStorage.setItem('todoList',JSON.stringify(list))\n }\n function loadData(){\n-    let allList=localStorage.getItem('list')\n+    let allList=localStorage.getItem('todoList')\n     console.log(allList);\n     \n     // if(allList){\n     //     list=reactive(JSON.parse(allList))\n     // }\n     // console.log(list);\n     \n }\n-loadData();\n+\n onBeforeMount(()=>{\n //   loadData()\n })\n \n"
+                },
+                {
+                    "date": 1712145978882,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,17 +18,17 @@\n function loadData(){\n     let allList=localStorage.getItem('todoList')\n     console.log(allList);\n     \n-    // if(allList){\n-    //     list=reactive(JSON.parse(allList))\n-    // }\n-    // console.log(list);\n+    if(allList){\n+        list=reactive(JSON.parse(allList))\n+    }\n+    console.log(list);\n     \n }\n \n onBeforeMount(()=>{\n-//   loadData()\n+  loadData()\n })\n \n function getList(val:Array<object>){\n     list=reactive(val)\n"
+                },
+                {
+                    "date": 1712145986472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,13 +17,12 @@\n }\n function loadData(){\n     let allList=localStorage.getItem('todoList')\n     console.log(allList);\n-    \n     if(allList){\n         list=reactive(JSON.parse(allList))\n     }\n-    console.log(list);\n+\\\n     \n }\n \n onBeforeMount(()=>{\n"
+                },
+                {
+                    "date": 1712146041669,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\n     <div class=\"container\">\n         <Header @send-list=\"getList\"></Header>\n-        <List :list=\"list\"></List>\n+        <List v-bind=\"\"></List>\n         <Footer></Footer>\n     </div>\n </template>\n \n@@ -16,14 +16,11 @@\n     localStorage.setItem('todoList',JSON.stringify(list))\n }\n function loadData(){\n     let allList=localStorage.getItem('todoList')\n-    console.log(allList);\n     if(allList){\n         list=reactive(JSON.parse(allList))\n-    }\n-\\\n-    \n+    } \n }\n \n onBeforeMount(()=>{\n   loadData()\n"
+                },
+                {
+                    "date": 1712146050129,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\n     <div class=\"container\">\n         <Header @send-list=\"getList\"></Header>\n-        <List v-bind=\"\"></List>\n+        <List v-bind=\"list\"></List>\n         <Footer></Footer>\n     </div>\n </template>\n \n"
+                },
+                {
+                    "date": 1712146254526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\n     <div class=\"container\">\n         <Header @send-list=\"getList\"></Header>\n-        <List v-bind=\"list\"></List>\n+        <List v-bind=\"{list}\"></List>\n         <Footer></Footer>\n     </div>\n </template>\n \n"
+                },
+                {
+                    "date": 1712146708482,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,8 +19,10 @@\n     let allList=localStorage.getItem('todoList')\n     if(allList){\n         list=reactive(JSON.parse(allList))\n     } \n+    console.log();\n+    \n }\n \n onBeforeMount(()=>{\n   loadData()\n"
+                },
+                {
+                    "date": 1712146716632,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     let allList=localStorage.getItem('todoList')\n     if(allList){\n         list=reactive(JSON.parse(allList))\n     } \n-    console.log();\n+    console.log(list);\n     \n }\n \n onBeforeMount(()=>{\n"
+                },
+                {
+                    "date": 1712146760687,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,8 @@\n })\n \n function getList(val:Array<object>){\n     list=reactive(val)\n-    console.log(list);\n     saveData()\n }\n \n </script>\n"
+                },
+                {
+                    "date": 1712146774252,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,10 +19,9 @@\n     let allList=localStorage.getItem('todoList')\n     if(allList){\n         list=reactive(JSON.parse(allList))\n     } \n-    console.log(list);\n-    \n+    console.log(list); \n }\n \n onBeforeMount(()=>{\n   loadData()\n"
+                },
+                {
+                    "date": 1712146814994,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,10 @@\n import { reactive,onBeforeMount } from 'vue';\n let list=reactive<object[]>([])\n function saveData(){\n     localStorage.setItem('todoList',JSON.stringify(list))\n+    console.log('save');\n+    \n }\n function loadData(){\n     let allList=localStorage.getItem('todoList')\n     if(allList){\n"
+                },
+                {
+                    "date": 1712146874118,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,8 @@\n import Footer from './components/Footer.vue';\n import { reactive,onBeforeMount } from 'vue';\n let list=reactive<object[]>([])\n function saveData(){\n-    localStorage.setItem('todoList',JSON.stringify(list))\n     console.log('save');\n     \n }\n function loadData(){\n"
+                },
+                {
+                    "date": 1712146880699,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,12 +11,9 @@\n import List from './components/List.vue';\n import Footer from './components/Footer.vue';\n import { reactive,onBeforeMount } from 'vue';\n let list=reactive<object[]>([])\n-function saveData(){\n-    console.log('save');\n-    \n-}\n+\n function loadData(){\n     let allList=localStorage.getItem('todoList')\n     if(allList){\n         list=reactive(JSON.parse(allList))\n@@ -29,9 +26,10 @@\n })\n \n function getList(val:Array<object>){\n     list=reactive(val)\n-    saveData()\n+    localStorage.setItem('todoList',JSON.stringify(list))\n+\n }\n \n </script>\n     \n"
+                },
+                {
+                    "date": 1712146928803,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,9 @@\n     let allList=localStorage.getItem('todoList')\n     if(allList){\n         list=reactive(JSON.parse(allList))\n     } \n+    log\n     console.log(list); \n }\n \n onBeforeMount(()=>{\n"
+                },
+                {
+                    "date": 1712147309106,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,17 +17,19 @@\n     let allList=localStorage.getItem('todoList')\n     if(allList){\n         list=reactive(JSON.parse(allList))\n     } \n-    log\n+    console.log(allList);\n     console.log(list); \n }\n \n onBeforeMount(()=>{\n   loadData()\n })\n \n function getList(val:Array<object>){\n+    console.log(val);\n+    \n     list=reactive(val)\n     localStorage.setItem('todoList',JSON.stringify(list))\n \n }\n"
+                },
+                {
+                    "date": 1712147326190,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n   loadData()\n })\n \n function getList(val:Array<object>){\n-    console.log(val);\n+    // console.log(val);\n     \n     list=reactive(val)\n     localStorage.setItem('todoList',JSON.stringify(list))\n \n"
+                },
+                {
+                    "date": 1712147422010,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,13 +26,11 @@\n   loadData()\n })\n \n function getList(val:Array<object>){\n-    // console.log(val);\n-    \n     list=reactive(val)\n     localStorage.setItem('todoList',JSON.stringify(list))\n-\n+    log\n }\n \n </script>\n     \n"
+                },
+                {
+                    "date": 1712147467108,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n \n function getList(val:Array<object>){\n     list=reactive(val)\n     localStorage.setItem('todoList',JSON.stringify(list))\n-    log\n+    console.log('111');\n }\n \n </script>\n     \n"
+                },
+                {
+                    "date": 1712147488770,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n <script lang=\"ts\" name=\"App\" setup>\n import Header from './components/Header.vue';\n import List from './components/List.vue';\n import Footer from './components/Footer.vue';\n-import { reactive,onBeforeMount } from 'vue';\n+import { reactive,onBeforeMount, onUpdated } from 'vue';\n let list=reactive<object[]>([])\n \n function loadData(){\n     let allList=localStorage.getItem('todoList')\n@@ -21,16 +21,15 @@\n     console.log(allList);\n     console.log(list); \n }\n \n-onBeforeMount(()=>{\n+onUpdated(()=>{\n   loadData()\n })\n \n function getList(val:Array<object>){\n     list=reactive(val)\n     localStorage.setItem('todoList',JSON.stringify(list))\n-    console.log('111');\n }\n \n </script>\n     \n"
+                },
+                {
+                    "date": 1712147541715,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n     console.log(allList);\n     console.log(list); \n }\n \n-onUpdated(()=>{\n+onBeforeMount(()=>{\n   loadData()\n })\n \n function getList(val:Array<object>){\n"
+                },
+                {
+                    "date": 1712147570900,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,8 @@\n     let allList=localStorage.getItem('todoList')\n     if(allList){\n         list=reactive(JSON.parse(allList))\n     } \n-    console.log(allList);\n     console.log(list); \n }\n \n onBeforeMount(()=>{\n"
+                },
+                {
+                    "date": 1712148151528,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <template>\n     <div class=\"container\">\n-        <Header @send-list=\"getList\"></Header>\n+        <Header @send-todo=\"getList\"></Header>\n         <List v-bind=\"{list}\"></List>\n         <Footer></Footer>\n     </div>\n </template>\n"
+                },
+                {
+                    "date": 1712148157723,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,41 @@\n+<template>\n+    <div class=\"container\">\n+        <Header @send-todo=\"getList\"></Header>\n+        <List v-bind=\"{list}\"></List>\n+        <Footer></Footer>\n+    </div>\n+</template>\n+\n+<script lang=\"ts\" name=\"App\" setup>\n+import Header from './components/Header.vue';\n+import List from './components/List.vue';\n+import Footer from './components/Footer.vue';\n+import { reactive,onBeforeMount, onUpdated } from 'vue';\n+let list=reactive<object[]>([])\n+\n+function loadData(){\n+    let allList=localStorage.getItem('todoList')\n+    if(allList){\n+        list=reactive(JSON.parse(allList))\n+    } \n+    console.log(list); \n+}\n+\n+onBeforeMount(()=>{\n+  loadData()\n+})\n+\n+function getList(val){\n+    list=reactive(val)\n+    localStorage.setItem('todoList',JSON.stringify(list))\n+}\n+\n+</script>\n+    \n+<style>\n+    .container{\n+        display: inline-block;\n+        border: 1px solid #aaa;\n+        padding: 15px;\n+    }\n+</style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712148167059,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,53 +25,14 @@\n   loadData()\n })\n \n function getList(val){\n-    list=reactive(val)\n-    localStorage.setItem('todoList',JSON.stringify(list))\n-}\n-\n-</script>\n+    console.log(val);\n     \n-<style>\n-    .container{\n-        display: inline-block;\n-        border: 1px solid #aaa;\n-        padding: 15px;\n-    }\n-</style>\n-<template>\n-    <div class=\"container\">\n-        <Header @send-todo=\"getList\"></Header>\n-        <List v-bind=\"{list}\"></List>\n-        <Footer></Footer>\n-    </div>\n-</template>\n-\n-<script lang=\"ts\" name=\"App\" setup>\n-import Header from './components/Header.vue';\n-import List from './components/List.vue';\n-import Footer from './components/Footer.vue';\n-import { reactive,onBeforeMount, onUpdated } from 'vue';\n-let list=reactive<object[]>([])\n-\n-function loadData(){\n-    let allList=localStorage.getItem('todoList')\n-    if(allList){\n-        list=reactive(JSON.parse(allList))\n-    } \n-    console.log(list); \n+    // list=reactive(val)\n+    // localStorage.setItem('todoList',JSON.stringify(list))\n }\n \n-onBeforeMount(()=>{\n-  loadData()\n-})\n-\n-function getList(val:Array<object>){\n-    list=reactive(val)\n-    localStorage.setItem('todoList',JSON.stringify(list))\n-}\n-\n </script>\n     \n <style>\n     .container{\n"
+                },
+                {
+                    "date": 1712148253268,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,8 @@\n   loadData()\n })\n \n function getList(val){\n-    console.log(val);\n     \n     // list=reactive(val)\n     // localStorage.setItem('todoList',JSON.stringify(list))\n }\n"
+                },
+                {
+                    "date": 1712148260361,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,10 +25,9 @@\n   loadData()\n })\n \n function getList(val){\n-    \n-    // list=reactive(val)\n+    // list.pus(val)\n     // localStorage.setItem('todoList',JSON.stringify(list))\n }\n \n </script>\n"
+                },
+                {
+                    "date": 1712148267944,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,41 @@\n+<template>\n+    <div class=\"container\">\n+        <Header @send-todo=\"getList\"></Header>\n+        <List v-bind=\"{list}\"></List>\n+        <Footer></Footer>\n+    </div>\n+</template>\n+\n+<script lang=\"ts\" name=\"App\" setup>\n+import Header from './components/Header.vue';\n+import List from './components/List.vue';\n+import Footer from './components/Footer.vue';\n+import { reactive,onBeforeMount, onUpdated } from 'vue';\n+let list=reactive<object[]>([])\n+\n+function loadData(){\n+    let allList=localStorage.getItem('todoList')\n+    if(allList){\n+        list=reactive(JSON.parse(allList))\n+    } \n+    console.log(list); \n+}\n+\n+onBeforeMount(()=>{\n+  loadData()\n+})\n+\n+function getList(val){\n+    list.push(val)\n+    localStorage.setItem('todoList',JSON.stringify(list))\n+}\n+\n+</script>\n+    \n+<style>\n+    .container{\n+        display: inline-block;\n+        border: 1px solid #aaa;\n+        padding: 15px;\n+    }\n+</style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712148348981,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n   loadData()\n })\n \n function getList(val){\n-    list.push(val)\n+    list.unshift(val)\n     localStorage.setItem('todoList',JSON.stringify(list))\n }\n \n </script>\n@@ -37,46 +37,5 @@\n         display: inline-block;\n         border: 1px solid #aaa;\n         padding: 15px;\n     }\n-</style>\n-<template>\n-    <div class=\"container\">\n-        <Header @send-todo=\"getList\"></Header>\n-        <List v-bind=\"{list}\"></List>\n-        <Footer></Footer>\n-    </div>\n-</template>\n-\n-<script lang=\"ts\" name=\"App\" setup>\n-import Header from './components/Header.vue';\n-import List from './components/List.vue';\n-import Footer from './components/Footer.vue';\n-import { reactive,onBeforeMount, onUpdated } from 'vue';\n-let list=reactive<object[]>([])\n-\n-function loadData(){\n-    let allList=localStorage.getItem('todoList')\n-    if(allList){\n-        list=reactive(JSON.parse(allList))\n-    } \n-    console.log(list); \n-}\n-\n-onBeforeMount(()=>{\n-  loadData()\n-})\n-\n-function getList(val){\n-    // list.pus(val)\n-    // localStorage.setItem('todoList',JSON.stringify(list))\n-}\n-\n-</script>\n-    \n-<style>\n-    .container{\n-        display: inline-block;\n-        border: 1px solid #aaa;\n-        padding: 15px;\n-    }\n </style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712148411624,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\n     <div class=\"container\">\n         <Header @send-todo=\"getList\"></Header>\n-        <List v-bind=\"{list}\"></List>\n+        <List v-bind=\"{list}\" ></List>\n         <Footer></Footer>\n     </div>\n </template>\n \n"
+                },
+                {
+                    "date": 1712148418278,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\n     <div class=\"container\">\n         <Header @send-todo=\"getList\"></Header>\n-        <List v-bind=\"{list}\" ></List>\n+        <List v-bind=\"{list}\"  @deleteFun=\"delete\"></List>\n         <Footer></Footer>\n     </div>\n </template>\n \n"
+                },
+                {
+                    "date": 1712148433115,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\n     <div class=\"container\">\n         <Header @send-todo=\"getList\"></Header>\n-        <List v-bind=\"{list}\"  @deleteFun=\"delete\"></List>\n+        <List v-bind=\"{list}\"  @deleteFun=\"deleteFunction\"></List>\n         <Footer></Footer>\n     </div>\n </template>\n \n@@ -28,8 +28,11 @@\n function getList(val){\n     list.unshift(val)\n     localStorage.setItem('todoList',JSON.stringify(list))\n }\n+function deleteFunction(){\n+    \n+}\n \n </script>\n     \n <style>\n"
+                },
+                {
+                    "date": 1712148438721,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,10 +28,10 @@\n function getList(val){\n     list.unshift(val)\n     localStorage.setItem('todoList',JSON.stringify(list))\n }\n-function deleteFunction(){\n-    \n+function deleteFunction(val){\n+\n }\n \n </script>\n     \n"
+                },
+                {
+                    "date": 1712148446730,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,13 +24,13 @@\n onBeforeMount(()=>{\n   loadData()\n })\n \n-function getList(val){\n+function getList(val:object){\n     list.unshift(val)\n     localStorage.setItem('todoList',JSON.stringify(list))\n }\n-function deleteFunction(val){\n+function deleteFunction(val:number){\n \n }\n \n </script>\n"
+                },
+                {
+                    "date": 1712148453663,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,10 @@\n     list.unshift(val)\n     localStorage.setItem('todoList',JSON.stringify(list))\n }\n function deleteFunction(val:number){\n-\n+    console.log(val);\n+    \n }\n \n </script>\n     \n"
+                },
+                {
+                    "date": 1712148632373,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n function getList(val:object){\n     list.unshift(val)\n     localStorage.setItem('todoList',JSON.stringify(list))\n }\n-function deleteFunction(val:number){\n+condeleteFunction(val:number){\n     console.log(val);\n     \n }\n \n"
+                },
+                {
+                    "date": 1712148638375,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n function getList(val:object){\n     list.unshift(val)\n     localStorage.setItem('todoList',JSON.stringify(list))\n }\n-condeleteFunction(val:number){\n+const deleteFunction=(val:number){\n     console.log(val);\n     \n }\n \n"
+                },
+                {
+                    "date": 1712148663425,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\n     <div class=\"container\">\n         <Header @send-todo=\"getList\"></Header>\n-        <List v-bind=\"{list}\"  @deleteFun=\"deleteFunction\"></List>\n+        <List v-bind=\"{list}\"  :deleteFun=\"deleteFunction\"></List>\n         <Footer></Footer>\n     </div>\n </template>\n \n@@ -28,9 +28,9 @@\n function getList(val:object){\n     list.unshift(val)\n     localStorage.setItem('todoList',JSON.stringify(list))\n }\n-const deleteFunction=(val:number){\n+const deleteFunction=(val:number)=>{\n     console.log(val);\n     \n }\n \n"
+                },
+                {
+                    "date": 1712148762656,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\n     <div class=\"container\">\n         <Header @send-todo=\"getList\"></Header>\n-        <List v-bind=\"{list}\"  :deleteFun=\"deleteFunction\"></List>\n+        <List v-bind=\"{list}\"  :deleteFun=\"deleteFun\"></List>\n         <Footer></Footer>\n     </div>\n </template>\n \n"
+                },
+                {
+                    "date": 1712148769951,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n function getList(val:object){\n     list.unshift(val)\n     localStorage.setItem('todoList',JSON.stringify(list))\n }\n-const deleteFunction=(val:number)=>{\n+const deleteFun (val:number)=>{\n     console.log(val);\n     \n }\n \n"
+                },
+                {
+                    "date": 1712148777590,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n function getList(val:object){\n     list.unshift(val)\n     localStorage.setItem('todoList',JSON.stringify(list))\n }\n-const deleteFun (val:number)=>{\n+function deleteFun (val:number){\n     console.log(val);\n     \n }\n \n"
+                },
+                {
+                    "date": 1712148829414,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,45 @@\n+<template>\n+    <div class=\"container\">\n+        <Header @send-todo=\"getList\"></Header>\n+        <List v-bind=\"{list}\"  :deleteFun=\"deleteFun\"></List>\n+        <Footer></Footer>\n+    </div>\n+</template>\n+\n+<script lang=\"ts\" name=\"App\" setup>\n+import Header from './components/Header.vue';\n+import List from './components/List.vue';\n+import Footer from './components/Footer.vue';\n+import { reactive,onBeforeMount, onUpdated } from 'vue';\n+let list=reactive<object[]>([])\n+\n+function loadData(){\n+    let allList=localStorage.getItem('todoList')\n+    if(allList){\n+        list=reactive(JSON.parse(allList))\n+    } \n+    console.log(list); \n+}\n+\n+onBeforeMount(()=>{\n+  loadData()\n+})\n+\n+function getList(val:object){\n+    list.unshift(val)\n+    localStorage.setItem('todoList',JSON.stringify(list))\n+}\n+function deleteFun(val:number){\n+    \n+    \n+}\n+\n+</script>\n+    \n+<style>\n+    .container{\n+        display: inline-block;\n+        border: 1px solid #aaa;\n+        padding: 15px;\n+    }\n+</style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712148835041,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n     localStorage.setItem('todoList',JSON.stringify(list))\n }\n function deleteFun(val:number){\n     \n-    \n+    localStorage.removeItem()\n }\n \n </script>\n     \n@@ -41,50 +41,5 @@\n         display: inline-block;\n         border: 1px solid #aaa;\n         padding: 15px;\n     }\n-</style>\n-<template>\n-    <div class=\"container\">\n-        <Header @send-todo=\"getList\"></Header>\n-        <List v-bind=\"{list}\"  :deleteFun=\"deleteFun\"></List>\n-        <Footer></Footer>\n-    </div>\n-</template>\n-\n-<script lang=\"ts\" name=\"App\" setup>\n-import Header from './components/Header.vue';\n-import List from './components/List.vue';\n-import Footer from './components/Footer.vue';\n-import { reactive,onBeforeMount, onUpdated } from 'vue';\n-let list=reactive<object[]>([])\n-\n-function loadData(){\n-    let allList=localStorage.getItem('todoList')\n-    if(allList){\n-        list=reactive(JSON.parse(allList))\n-    } \n-    console.log(list); \n-}\n-\n-onBeforeMount(()=>{\n-  loadData()\n-})\n-\n-function getList(val:object){\n-    list.unshift(val)\n-    localStorage.setItem('todoList',JSON.stringify(list))\n-}\n-function deleteFun (val:number){\n-    console.log(val);\n-    \n-}\n-\n-</script>\n-    \n-<style>\n-    .container{\n-        display: inline-block;\n-        border: 1px solid #aaa;\n-        padding: 15px;\n-    }\n </style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712148845447,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n     list.unshift(val)\n     localStorage.setItem('todoList',JSON.stringify(list))\n }\n function deleteFun(val:number){\n-    \n+    let thing=\n     localStorage.removeItem()\n }\n \n </script>\n"
+                },
+                {
+                    "date": 1712148861072,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n     list.unshift(val)\n     localStorage.setItem('todoList',JSON.stringify(list))\n }\n function deleteFun(val:number){\n-    let thing=\n+    let thing=list[]\n     localStorage.removeItem()\n }\n \n </script>\n"
+                },
+                {
+                    "date": 1712148868104,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n     list.unshift(val)\n     localStorage.setItem('todoList',JSON.stringify(list))\n }\n function deleteFun(val:number){\n-    let thing=list[]\n+    let thing=list[val].thing\n     localStorage.removeItem()\n }\n \n </script>\n"
+                },
+                {
+                    "date": 1712148875419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n     list.unshift(val)\n     localStorage.setItem('todoList',JSON.stringify(list))\n }\n function deleteFun(val:number){\n-    let thing=list[val].thing\n+    let thing=\n     localStorage.removeItem()\n }\n \n </script>\n"
+                },
+                {
+                    "date": 1712148903538,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,10 +29,11 @@\n     list.unshift(val)\n     localStorage.setItem('todoList',JSON.stringify(list))\n }\n function deleteFun(val:number){\n-    let thing=\n-    localStorage.removeItem()\n+    commentList.splice(index,1)\n+  localStorage.setItem('commentList',JSON.stringify(commentList));\n+\n }\n \n </script>\n     \n"
+                },
+                {
+                    "date": 1712148909550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,11 +28,11 @@\n function getList(val:object){\n     list.unshift(val)\n     localStorage.setItem('todoList',JSON.stringify(list))\n }\n-function deleteFun(val:number){\n-    commentList.splice(index,1)\n-  localStorage.setItem('commentList',JSON.stringify(commentList));\n+function deleteFun(index:number){\n+    list.splice(index,1)\n+    localStorage.setItem('commentList',JSON.stringify(commentList));\n \n }\n \n </script>\n"
+                },
+                {
+                    "date": 1712148915098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n     localStorage.setItem('todoList',JSON.stringify(list))\n }\n function deleteFun(index:number){\n     list.splice(index,1)\n-    localStorage.setItem('commentList',JSON.stringify(commentList));\n+    localStorage.setItem('list',JSON.stringify(list));\n \n }\n \n </script>\n"
+                },
+                {
+                    "date": 1712149159354,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\n     <div class=\"container\">\n         <Header @send-todo=\"getList\"></Header>\n-        <List v-bind=\"{list}\"  :deleteFun=\"deleteFun\"></List>\n+        <List v-bind=\"{list}\"  :deleteFun=\"deleteFun\" ></List>\n         <Footer></Footer>\n     </div>\n </template>\n \n@@ -30,9 +30,9 @@\n     localStorage.setItem('todoList',JSON.stringify(list))\n }\n function deleteFun(index:number){\n     list.splice(index,1)\n-    localStorage.setItem('list',JSON.stringify(list));\n+    localStorage.setItem('todoList',JSON.stringify(list));\n \n }\n \n </script>\n"
+                },
+                {
+                    "date": 1712149165074,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,46 @@\n+<template>\n+    <div class=\"container\">\n+        <Header @send-todo=\"getList\"></Header>\n+        <List v-bind=\"{list}\"  :deleteFun=\"deleteFun\" :checkTodo=\"'checkTodo'\"></List>\n+        <Footer></Footer>\n+    </div>\n+</template>\n+\n+<script lang=\"ts\" name=\"App\" setup>\n+import Header from './components/Header.vue';\n+import List from './components/List.vue';\n+import Footer from './components/Footer.vue';\n+import { reactive,onBeforeMount, onUpdated } from 'vue';\n+let list=reactive<object[]>([])\n+\n+function loadData(){\n+    let allList=localStorage.getItem('todoList')\n+    if(allList){\n+        list=reactive(JSON.parse(allList))\n+    } \n+    console.log(list); \n+}\n+\n+onBeforeMount(()=>{\n+  loadData()\n+})\n+\n+function getList(val:object){\n+    list.unshift(val)\n+    localStorage.setItem('todoList',JSON.stringify(list))\n+}\n+function deleteFun(index:number){\n+    list.splice(index,1)\n+    localStorage.setItem('todoList',JSON.stringify(list));\n+\n+}\n+\n+</script>\n+    \n+<style>\n+    .container{\n+        display: inline-block;\n+        border: 1px solid #aaa;\n+        padding: 15px;\n+    }\n+</style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712149172810,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n <script lang=\"ts\" name=\"App\" setup>\n import Header from './components/Header.vue';\n import List from './components/List.vue';\n import Footer from './components/Footer.vue';\n-import { reactive,onBeforeMount, onUpdated } from 'vue';\n+import { reactive,onBeforeMount } from 'vue';\n let list=reactive<object[]>([])\n \n function loadData(){\n     let allList=localStorage.getItem('todoList')\n@@ -33,60 +33,14 @@\n     list.splice(index,1)\n     localStorage.setItem('todoList',JSON.stringify(list));\n \n }\n-\n+f\n </script>\n     \n <style>\n     .container{\n         display: inline-block;\n         border: 1px solid #aaa;\n         padding: 15px;\n     }\n-</style>\n-<template>\n-    <div class=\"container\">\n-        <Header @send-todo=\"getList\"></Header>\n-        <List v-bind=\"{list}\"  :deleteFun=\"deleteFun\" ></List>\n-        <Footer></Footer>\n-    </div>\n-</template>\n-\n-<script lang=\"ts\" name=\"App\" setup>\n-import Header from './components/Header.vue';\n-import List from './components/List.vue';\n-import Footer from './components/Footer.vue';\n-import { reactive,onBeforeMount, onUpdated } from 'vue';\n-let list=reactive<object[]>([])\n-\n-function loadData(){\n-    let allList=localStorage.getItem('todoList')\n-    if(allList){\n-        list=reactive(JSON.parse(allList))\n-    } \n-    console.log(list); \n-}\n-\n-onBeforeMount(()=>{\n-  loadData()\n-})\n-\n-function getList(val:object){\n-    list.unshift(val)\n-    localStorage.setItem('todoList',JSON.stringify(list))\n-}\n-function deleteFun(index:number){\n-    list.splice(index,1)\n-    localStorage.setItem('todoList',JSON.stringify(list));\n-\n-}\n-\n-</script>\n-    \n-<style>\n-    .container{\n-        display: inline-block;\n-        border: 1px solid #aaa;\n-        padding: 15px;\n-    }\n </style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712149180924,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n     list.splice(index,1)\n     localStorage.setItem('todoList',JSON.stringify(list));\n \n }\n-f\n+function checkTodo(index:number)\n </script>\n     \n <style>\n     .container{\n"
+                },
+                {
+                    "date": 1712149188896,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,11 @@\n     list.splice(index,1)\n     localStorage.setItem('todoList',JSON.stringify(list));\n \n }\n-function checkTodo(index:number)\n+function checkTodo(index:number){\n+    list.\n+}\n </script>\n     \n <style>\n     .container{\n"
+                },
+                {
+                    "date": 1712149196486,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,11 @@\n     localStorage.setItem('todoList',JSON.stringify(list));\n \n }\n function checkTodo(index:number){\n-    list.\n+    list\n+    localStorage.setItem('todoList',JSON.stringify(list));\n+\n }\n </script>\n     \n <style>\n"
+                },
+                {
+                    "date": 1712149203217,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n     localStorage.setItem('todoList',JSON.stringify(list));\n \n }\n function checkTodo(index:number){\n-    list[index].don\n+    list[index].done\n     localStorage.setItem('todoList',JSON.stringify(list));\n \n }\n </script>\n"
+                },
+                {
+                    "date": 1712149250344,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,50 @@\n+<template>\n+    <div class=\"container\">\n+        <Header @send-todo=\"getList\"></Header>\n+        <List v-bind=\"{list}\"  :deleteFun=\"deleteFun\" :checkTodo=\"checkTodo\"></List>\n+        <Footer></Footer>\n+    </div>\n+</template>\n+\n+<script lang=\"ts\" name=\"App\" setup>\n+import Header from './components/Header.vue';\n+import List from './components/List.vue';\n+import Footer from './components/Footer.vue';\n+import { reactive,onBeforeMount } from 'vue';\n+let list=reactive<object[]>([])\n+\n+function loadData(){\n+    let allList=localStorage.getItem('todoList')\n+    if(allList){\n+        list=reactive(JSON.parse(allList))\n+    } \n+    console.log(list); \n+}\n+\n+onBeforeMount(()=>{\n+  loadData()\n+})\n+\n+function getList(val:object){\n+    list.unshift(val)\n+    localStorage.setItem('todoList',JSON.stringify(list))\n+}\n+function deleteFun(index:number){\n+    list.splice(index,1)\n+    localStorage.setItem('todoList',JSON.stringify(list));\n+\n+}\n+function checkTodo(index:number){\n+    log\n+    localStorage.setItem('todoList',JSON.stringify(list));\n+\n+}\n+</script>\n+    \n+<style>\n+    .container{\n+        display: inline-block;\n+        border: 1px solid #aaa;\n+        padding: 15px;\n+    }\n+</style>\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1712117313841,
+            "name": "Commit-0",
+            "content": "<template>\n\n</template>\n\n<script lang=\"ts\" name=\"\" setup>\nimport {  } from 'vue'\n\n</script>\n\n<style scoped>\n\n</style>"
+        }
+    ]
+}

@@ -1,0 +1,106 @@
+{
+    "sourceFile": "src/components/Header.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 22,
+            "patches": [
+                {
+                    "date": 1712117818385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1712117826572,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,8 @@\n         <input type=\"text\" v-model.trim=\"thing\" placeholder=\"请输入你的任务，按回车键添加\" @keydown.enter=\"addTodo(thing)\">\r\n     </div>\r\n </template>\r\n <script>\r\n-    import {nanoid} from 'nanoid'\r\n     \r\n </script>\r\n \r\n <style scoped>\r\n"
+                },
+                {
+                    "date": 1712117882862,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n     <div class=\"todo-header\">\r\n         <input type=\"text\" v-model.trim=\"thing\" placeholder=\"请输入你的任务，按回车键添加\" @keydown.enter=\"addTodo(thing)\">\r\n     </div>\r\n </template>\r\n-<script>\r\n+<script lang=\"ts\" name=\"Footer\" setup>\r\n     \r\n </script>\r\n \r\n <style scoped>\r\n"
+                },
+                {
+                    "date": 1712118108317,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,12 @@\n     <div class=\"todo-header\">\r\n         <input type=\"text\" v-model.trim=\"thing\" placeholder=\"请输入你的任务，按回车键添加\" @keydown.enter=\"addTodo(thing)\">\r\n     </div>\r\n </template>\r\n-<script lang=\"ts\" name=\"Footer\" setup>\r\n-    \r\n+<script lang=\"ts\" name=\"Header\" setup>\r\n+import { ref } from \"vue\";\r\n+\r\n+    let thing=ref\r\n </script>\r\n \r\n <style scoped>\r\n     .todo-header input{\r\n"
+                },
+                {
+                    "date": 1712118113515,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,19 @@\n+<template>\r\n+    <div class=\"todo-header\">\r\n+        <input type=\"text\" v-model.trim=\"thing\" placeholder=\"请输入你的任务，按回车键添加\" @keydown.enter=\"addTodo(thing)\">\r\n+    </div>\r\n+</template>\r\n+<script lang=\"ts\" name=\"Header\" setup>\r\n+    import { ref } from \"vue\";\r\n+\r\n+    let thing=ref('')\r\n+</script>\r\n+\r\n+<style scoped>\r\n+    .todo-header input{\r\n+        width: 400px;\r\n+        padding: 10px;\r\n+        border-radius: 5px;\r\n+        border: 1px solid #ccc;\r\n+    }\r\n+</style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712118121786,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,10 +4,11 @@\n     </div>\r\n </template>\r\n <script lang=\"ts\" name=\"Header\" setup>\r\n     import { ref } from \"vue\";\r\n-\r\n     let thing=ref('')\r\n+    console.log();\r\n+    \r\n </script>\r\n \r\n <style scoped>\r\n     .todo-header input{\r\n@@ -15,24 +16,5 @@\n         padding: 10px;\r\n         border-radius: 5px;\r\n         border: 1px solid #ccc;\r\n     }\r\n-</style>\n-<template>\r\n-    <div class=\"todo-header\">\r\n-        <input type=\"text\" v-model.trim=\"thing\" placeholder=\"请输入你的任务，按回车键添加\" @keydown.enter=\"addTodo(thing)\">\r\n-    </div>\r\n-</template>\r\n-<script lang=\"ts\" name=\"Header\" setup>\r\n-import { ref } from \"vue\";\r\n-\r\n-    let thing=ref\r\n-</script>\r\n-\r\n-<style scoped>\r\n-    .todo-header input{\r\n-        width: 400px;\r\n-        padding: 10px;\r\n-        border-radius: 5px;\r\n-        border: 1px solid #ccc;\r\n-    }\r\n </style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712118132743,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n </template>\r\n <script lang=\"ts\" name=\"Header\" setup>\r\n     import { ref } from \"vue\";\r\n     let thing=ref('')\r\n-    console.log();\r\n+    console.log(thing.value);\r\n     \r\n </script>\r\n \r\n <style scoped>\r\n"
+                },
+                {
+                    "date": 1712118143631,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,10 +5,9 @@\n </template>\r\n <script lang=\"ts\" name=\"Header\" setup>\r\n     import { ref } from \"vue\";\r\n     let thing=ref('')\r\n-    console.log(thing.value);\r\n-    \r\n+    uo    \r\n </script>\r\n \r\n <style scoped>\r\n     .todo-header input{\r\n"
+                },
+                {
+                    "date": 1712118158618,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,11 @@\n </template>\r\n <script lang=\"ts\" name=\"Header\" setup>\r\n     import { ref } from \"vue\";\r\n     let thing=ref('')\r\n-    uo    \r\n+    beforeUpdate() {\r\n+        \r\n+    },    \r\n </script>\r\n \r\n <style scoped>\r\n     .todo-header input{\r\n"
+                },
+                {
+                    "date": 1712118164829,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,11 +3,12 @@\n         <input type=\"text\" v-model.trim=\"thing\" placeholder=\"请输入你的任务，按回车键添加\" @keydown.enter=\"addTodo(thing)\">\r\n     </div>\r\n </template>\r\n <script lang=\"ts\" name=\"Header\" setup>\r\n-    import { ref } from \"vue\";\r\n+    import { onUpdated, ref } from \"vue\";\r\n     let thing=ref('')\r\n-    beforeUpdate() {\r\n+    onUpdated() {\r\n+    console.log(thing.value);\r\n         \r\n     },    \r\n </script>\r\n \r\n"
+                },
+                {
+                    "date": 1712118173193,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n </template>\r\n <script lang=\"ts\" name=\"Header\" setup>\r\n     import { onUpdated, ref } from \"vue\";\r\n     let thing=ref('')\r\n-    onUpdated() {\r\n+    onUpdated()\r\n     console.log(thing.value);\r\n         \r\n     },    \r\n </script>\r\n"
+                },
+                {
+                    "date": 1712118180963,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,12 +5,12 @@\n </template>\r\n <script lang=\"ts\" name=\"Header\" setup>\r\n     import { onUpdated, ref } from \"vue\";\r\n     let thing=ref('')\r\n-    onUpdated()\r\n+    onUpdated({}\r\n     console.log(thing.value);\r\n         \r\n-    },    \r\n+    })    \r\n </script>\r\n \r\n <style scoped>\r\n     .todo-header input{\r\n"
+                },
+                {
+                    "date": 1712118186491,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n </template>\r\n <script lang=\"ts\" name=\"Header\" setup>\r\n     import { onUpdated, ref } from \"vue\";\r\n     let thing=ref('')\r\n-    onUpdated({}\r\n+    onUpdated(()=>{\r\n     console.log(thing.value);\r\n         \r\n     })    \r\n </script>\r\n"
+                },
+                {
+                    "date": 1712118210379,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n     onUpdated(()=>{\r\n     console.log(thing.value);\r\n         \r\n     })    \r\n+    function addTodo()\r\n </script>\r\n \r\n <style scoped>\r\n     .todo-header input{\r\n"
+                },
+                {
+                    "date": 1712118218881,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,12 @@\n     onUpdated(()=>{\r\n     console.log(thing.value);\r\n         \r\n     })    \r\n-    function addTodo()\r\n+    function addTodo(val){\r\n+        console.log(val);\r\n+        \r\n+    }\r\n </script>\r\n \r\n <style scoped>\r\n     .todo-header input{\r\n"
+                },
+                {
+                    "date": 1712118230762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,12 +5,9 @@\n </template>\r\n <script lang=\"ts\" name=\"Header\" setup>\r\n     import { onUpdated, ref } from \"vue\";\r\n     let thing=ref('')\r\n-    onUpdated(()=>{\r\n-    console.log(thing.value);\r\n-        \r\n-    })    \r\n+    onUpdated(()=>{  \r\n     function addTodo(val){\r\n         console.log(val);\r\n         \r\n     }\r\n"
+                },
+                {
+                    "date": 1712118236642,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,8 @@\n </template>\r\n <script lang=\"ts\" name=\"Header\" setup>\r\n     import { onUpdated, ref } from \"vue\";\r\n     let thing=ref('')\r\n-    onUpdated(()=>{  \r\n     function addTodo(val){\r\n         console.log(val);\r\n         \r\n     }\r\n"
+                },
+                {
+                    "date": 1712144338399,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,8 @@\n     import { onUpdated, ref } from \"vue\";\r\n     let thing=ref('')\r\n     function addTodo(val){\r\n         console.log(val);\r\n-        \r\n     }\r\n </script>\r\n \r\n <style scoped>\r\n"
+                },
+                {
+                    "date": 1712144363241,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n         <input type=\"text\" v-model.trim=\"thing\" placeholder=\"请输入你的任务，按回车键添加\" @keydown.enter=\"addTodo(thing)\">\r\n     </div>\r\n </template>\r\n <script lang=\"ts\" name=\"Header\" setup>\r\n-    import { onUpdated, ref } from \"vue\";\r\n+    import { onUpdated, ref} from \"vue\";\r\n     let thing=ref('')\r\n     function addTodo(val){\r\n         console.log(val);\r\n     }\r\n"
+                },
+                {
+                    "date": 1712144372160,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,11 @@\n         <input type=\"text\" v-model.trim=\"thing\" placeholder=\"请输入你的任务，按回车键添加\" @keydown.enter=\"addTodo(thing)\">\r\n     </div>\r\n </template>\r\n <script lang=\"ts\" name=\"Header\" setup>\r\n-    import { onUpdated, ref} from \"vue\";\r\n+    import { onUpdated, ref,reactive} from \"vue\";\r\n     let thing=ref('')\r\n+    let list=reactive()\r\n     function addTodo(val){\r\n         console.log(val);\r\n     }\r\n </script>\r\n"
+                },
+                {
+                    "date": 1712144377517,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n </template>\r\n <script lang=\"ts\" name=\"Header\" setup>\r\n     import { onUpdated, ref,reactive} from \"vue\";\r\n     let thing=ref('')\r\n-    let list=reactive()\r\n+    let list=reactive([])\r\n     function addTodo(val){\r\n         console.log(val);\r\n     }\r\n </script>\r\n"
+                },
+                {
+                    "date": 1712144383660,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n </template>\r\n <script lang=\"ts\" name=\"Header\" setup>\r\n     import { onUpdated, ref,reactive} from \"vue\";\r\n     let thing=ref('')\r\n-    let list=reactive<object>([])\r\n+    let list=reactive<object[]>([])\r\n     function addTodo(val){\r\n         console.log(val);\r\n     }\r\n </script>\r\n"
+                },
+                {
+                    "date": 1712144526699,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     function addTodo(val:string){\r\n         list.push({thing:val,done:false})\r\n         thing.value=''\r\n     }\r\n-    \r\n+    t\r\n </script>\r\n \r\n <style scoped>\r\n     .todo-header input{\r\n"
+                }
+            ],
+            "date": 1712117818385,
+            "name": "Commit-0",
+            "content": "<template>\r\n    <div class=\"todo-header\">\r\n        <input type=\"text\" v-model.trim=\"thing\" placeholder=\"请输入你的任务，按回车键添加\" @keydown.enter=\"addTodo(thing)\">\r\n    </div>\r\n</template>\r\n<script>\r\n    import {nanoid} from 'nanoid'\r\n    \r\n</script>\r\n\r\n<style scoped>\r\n    .todo-header input{\r\n        width: 400px;\r\n        padding: 10px;\r\n        border-radius: 5px;\r\n        border: 1px solid #ccc;\r\n    }\r\n</style>"
+        }
+    ]
+}

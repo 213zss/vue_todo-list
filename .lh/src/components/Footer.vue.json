@@ -1,0 +1,258 @@
+{
+    "sourceFile": "src/components/Footer.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 60,
+            "patches": [
+                {
+                    "date": 1712117735430,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1712117743663,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n                 // return this.todos.reduce((pre,current)=>pre+(current.done?1:0),0)\r\n             },\r\n             isAll:{\r\n                 get(){\r\n-                    return this.haveDone===this.todos.length&&this.todos.length>0\r\n+                    // return this.haveDone===this.todos.length&&this.todos.length>0\r\n                 },\r\n                 set(x){\r\n                     this.$emit('checkAll',x)\r\n                 }\r\n"
+                },
+                {
+                    "date": 1712117756168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <template>\r\n     <div class=\"todo-footer\">\r\n         <label>\r\n             <input type=\"checkbox\" v-model=\"isAll\">\r\n-            <span>已完成{{ haveDone }} / 全部{{todos.length}}</span>\r\n+            <span>已完成0/ 全部{{todos.length}}</span>\r\n         </label>\r\n         <button @click=\"clearAll\">清除已完成任务</button>\r\n     </div>\r\n </template>\r\n"
+                },
+                {
+                    "date": 1712117766603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,42 +1,15 @@\n <template>\r\n     <div class=\"todo-footer\">\r\n         <label>\r\n             <input type=\"checkbox\" v-model=\"isAll\">\r\n-            <span>已完成0/ 全部{{todos.length}}</span>\r\n+            <span>已完成0/ 全部2</span>\r\n         </label>\r\n         <button @click=\"clearAll\">清除已完成任务</button>\r\n     </div>\r\n </template>\r\n <script>\r\n-    export default{\r\n-        name:'Footer',\r\n-        props:['todos'],\r\n-        computed:{\r\n-            haveDone(){\r\n-                \r\n-                // return this.todos.reduce((pre,current)=>pre+(current.done?1:0),0)\r\n-            },\r\n-            isAll:{\r\n-                get(){\r\n-                    // return this.haveDone===this.todos.length&&this.todos.length>0\r\n-                },\r\n-                set(x){\r\n-                    this.$emit('checkAll',x)\r\n-                }\r\n-            }\r\n-\r\n-        },\r\n-        methods:{\r\n-            clearAll(){\r\n-                this.$emit('clear');\r\n-            }\r\n-        }\r\n-           \r\n-        \r\n-       \r\n-        \r\n-    }\r\n+   \r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-footer{\r\n"
+                },
+                {
+                    "date": 1712117778581,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,10 @@\n         </label>\r\n         <button @click=\"clearAll\">清除已完成任务</button>\r\n     </div>\r\n </template>\r\n-<script>\r\n+\r\n+<script lang=\"ts\" name=\"App\" setup>\r\n    \r\n </script>\r\n     \r\n <style scoped>\r\n"
+                },
+                {
+                    "date": 1712117788122,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n         <button @click=\"clearAll\">清除已完成任务</button>\r\n     </div>\r\n </template>\r\n \r\n-<script lang=\"ts\" name=\"App\" setup>\r\n+<script lang=\"ts\" name=\"Footer\" setup>\r\n    \r\n </script>\r\n     \r\n <style scoped>\r\n"
+                },
+                {
+                    "date": 1712118039010,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\r\n     <div class=\"todo-footer\">\r\n         <label>\r\n-            <input type=\"checkbox\" v-model=\"isAll\">\r\n+            <input type=\"checkbox\">\r\n             <span>已完成0/ 全部2</span>\r\n         </label>\r\n         <button @click=\"clearAll\">清除已完成任务</button>\r\n     </div>\r\n"
+                },
+                {
+                    "date": 1712118055156,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     </div>\r\n </template>\r\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n-   \r\n+   im\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-footer{\r\n"
+                },
+                {
+                    "date": 1712118060484,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     </div>\r\n </template>\r\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n-   im\r\n+   import IteamVue from \"./Iteam.vue\";\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-footer{\r\n"
+                },
+                {
+                    "date": 1712118072798,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,8 @@\n     </div>\r\n </template>\r\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n-   import IteamVue from \"./Iteam.vue\";\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-footer{\r\n"
+                },
+                {
+                    "date": 1712149660027,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\r\n     <div class=\"todo-footer\">\r\n         <label>\r\n-            <input type=\"checkbox\">\r\n+            <input type=\"checkbox\" >\r\n             <span>已完成0/ 全部2</span>\r\n         </label>\r\n         <button @click=\"clearAll\">清除已完成任务</button>\r\n     </div>\r\n"
+                },
+                {
+                    "date": 1712150176379,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n     </div>\r\n </template>\r\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n+im\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-footer{\r\n"
+                },
+                {
+                    "date": 1712150182875,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     </div>\r\n </template>\r\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n-im\r\n+import {defi}\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-footer{\r\n"
+                },
+                {
+                    "date": 1712150190687,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,10 @@\n     </div>\r\n </template>\r\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n-import {defi}\r\n+import { DefineProps } from 'vue';\r\n+dep\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-footer{\r\n"
+                },
+                {
+                    "date": 1712150195825,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n </template>\r\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { DefineProps } from 'vue';\r\n-dep\r\n+defineProps('')\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-footer{\r\n"
+                },
+                {
+                    "date": 1712150202548,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,10 +8,10 @@\n     </div>\r\n </template>\r\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n-import { DefineProps } from 'vue';\r\n-defineProps('')\r\n+import { defineProps } from 'vue';\r\n+defineProps(['list'])\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-footer{\r\n"
+                },
+                {
+                    "date": 1712150212218,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,22 @@\n+<template>\r\n+    <div class=\"todo-footer\">\r\n+        <label>\r\n+            <input type=\"checkbox\" >\r\n+            <span>已完成0/ 全部{{list.length}}</span>\r\n+        </label>\r\n+        <button @click=\"clearAll\">清除已完成任务</button>\r\n+    </div>\r\n+</template>\r\n+\r\n+<script lang=\"ts\" name=\"Footer\" setup>\r\n+import { defineProps } from 'vue';\r\n+defineProps(['list'])\r\n+</script>\r\n+    \r\n+<style scoped>\r\n+    .todo-footer{\r\n+        display: flex;\r\n+        justify-content: space-between;\r\n+    }\r\n+    \r\n+</style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712150224359,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,30 +10,9 @@\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps } from 'vue';\r\n defineProps(['list'])\r\n-</script>\r\n-    \r\n-<style scoped>\r\n-    .todo-footer{\r\n-        display: flex;\r\n-        justify-content: space-between;\r\n-    }\r\n-    \r\n-</style>\n-<template>\r\n-    <div class=\"todo-footer\">\r\n-        <label>\r\n-            <input type=\"checkbox\" >\r\n-            <span>已完成0/ 全部2</span>\r\n-        </label>\r\n-        <button @click=\"clearAll\">清除已完成任务</button>\r\n-    </div>\r\n-</template>\r\n \r\n-<script lang=\"ts\" name=\"Footer\" setup>\r\n-import { defineProps } from 'vue';\r\n-defineProps(['list'])\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-footer{\r\n"
+                },
+                {
+                    "date": 1712150249405,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,9 @@\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps } from 'vue';\r\n defineProps(['list'])\r\n+console.log();\r\n \r\n </script>\r\n     \r\n <style scoped>\r\n"
+                },
+                {
+                    "date": 1712150256397,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,10 +10,10 @@\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps } from 'vue';\r\n defineProps(['list'])\r\n-console.log();\r\n \r\n+\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-footer{\r\n"
+                },
+                {
+                    "date": 1712150277634,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,24 @@\n+<template>\r\n+    <div class=\"todo-footer\">\r\n+        <label>\r\n+            <input type=\"checkbox\" >\r\n+            <span>已完成{{0}}/ 全部{{list.length}}</span>\r\n+        </label>\r\n+        <button @click=\"clearAll\">清除已完成任务</button>\r\n+    </div>\r\n+</template>\r\n+\r\n+<script lang=\"ts\" name=\"Footer\" setup>\r\n+import { defineProps } from 'vue';\r\n+defineProps(['list'])\r\n+\r\n+\r\n+</script>\r\n+    \r\n+<style scoped>\r\n+    .todo-footer{\r\n+        display: flex;\r\n+        justify-content: space-between;\r\n+    }\r\n+    \r\n+</style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712150314626,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n </template>\r\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps } from 'vue';\r\n-defineProps(['list'])\r\n+defineProps(['list','clearAll'])\r\n \r\n \r\n </script>\r\n     \r\n@@ -20,29 +20,5 @@\n         display: flex;\r\n         justify-content: space-between;\r\n     }\r\n     \r\n-</style>\n-<template>\r\n-    <div class=\"todo-footer\">\r\n-        <label>\r\n-            <input type=\"checkbox\" >\r\n-            <span>已完成0/ 全部{{list.length}}</span>\r\n-        </label>\r\n-        <button @click=\"clearAll\">清除已完成任务</button>\r\n-    </div>\r\n-</template>\r\n-\r\n-<script lang=\"ts\" name=\"Footer\" setup>\r\n-import { defineProps } from 'vue';\r\n-defineProps(['list'])\r\n-\r\n-\r\n-</script>\r\n-    \r\n-<style scoped>\r\n-    .todo-footer{\r\n-        display: flex;\r\n-        justify-content: space-between;\r\n-    }\r\n-    \r\n </style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712150387882,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\r\n     <div class=\"todo-footer\">\r\n         <label>\r\n-            <input type=\"checkbox\" >\r\n+            <input type=\"checkbox\" :>\r\n             <span>已完成{{0}}/ 全部{{list.length}}</span>\r\n         </label>\r\n         <button @click=\"clearAll\">清除已完成任务</button>\r\n     </div>\r\n"
+                },
+                {
+                    "date": 1712150393125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\r\n     <div class=\"todo-footer\">\r\n         <label>\r\n-            <input type=\"checkbox\" :>\r\n+            <input type=\"checkbox\" :checked>\r\n             <span>已完成{{0}}/ 全部{{list.length}}</span>\r\n         </label>\r\n         <button @click=\"clearAll\">清除已完成任务</button>\r\n     </div>\r\n"
+                },
+                {
+                    "date": 1712150399102,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\r\n     <div class=\"todo-footer\">\r\n         <label>\r\n-            <input type=\"checkbox\" :checked>\r\n+            <input type=\"checkbox\" :checked=\"true\">\r\n             <span>已完成{{0}}/ 全部{{list.length}}</span>\r\n         </label>\r\n         <button @click=\"clearAll\">清除已完成任务</button>\r\n     </div>\r\n"
+                },
+                {
+                    "date": 1712150417565,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\r\n     <div class=\"todo-footer\">\r\n         <label>\r\n-            <input type=\"checkbox\" :checked=\"true\">\r\n+            <input type=\"checkbox\" :checked=\"true\" >\r\n             <span>已完成{{0}}/ 全部{{list.length}}</span>\r\n         </label>\r\n         <button @click=\"clearAll\">清除已完成任务</button>\r\n     </div>\r\n"
+                },
+                {
+                    "date": 1712150435437,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\r\n     <div class=\"todo-footer\">\r\n         <label>\r\n-            <input type=\"checkbox\" :checked=\"true\" >\r\n+            <input type=\"checkbox\" :checked=\"true\" @change=\"\">\r\n             <span>已完成{{0}}/ 全部{{list.length}}</span>\r\n         </label>\r\n         <button @click=\"clearAll\">清除已完成任务</button>\r\n     </div>\r\n"
+                },
+                {
+                    "date": 1712150491296,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n </template>\r\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps } from 'vue';\r\n-defineProps(['list','clearAll'])\r\n+defineProps(['list','','clearAll'])\r\n \r\n \r\n </script>\r\n     \r\n"
+                },
+                {
+                    "date": 1712150554613,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,24 @@\n+<template>\r\n+    <div class=\"todo-footer\">\r\n+        <label>\r\n+            <input type=\"checkbox\" :checked=\"true\" @change=\"\">\r\n+            <span>已完成{{0}}/ 全部{{list.length}}</span>\r\n+        </label>\r\n+        <button @click=\"clearAll\">清除已完成任务</button>\r\n+    </div>\r\n+</template>\r\n+\r\n+<script lang=\"ts\" name=\"Footer\" setup>\r\n+import { defineProps } from 'vue';\r\n+defineProps(['list','checkAll','clearAll'])\r\n+\r\n+\r\n+</script>\r\n+    \r\n+<style scoped>\r\n+    .todo-footer{\r\n+        display: flex;\r\n+        justify-content: space-between;\r\n+    }\r\n+    \r\n+</style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712150630465,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\r\n     <div class=\"todo-footer\">\r\n         <label>\r\n-            <input type=\"checkbox\" :checked=\"true\" @change=\"\">\r\n+            <input type=\"checkbox\" :checked=\"all\" @change=\"\">\r\n             <span>已完成{{0}}/ 全部{{list.length}}</span>\r\n         </label>\r\n         <button @click=\"clearAll\">清除已完成任务</button>\r\n     </div>\r\n@@ -20,29 +20,5 @@\n         display: flex;\r\n         justify-content: space-between;\r\n     }\r\n     \r\n-</style>\n-<template>\r\n-    <div class=\"todo-footer\">\r\n-        <label>\r\n-            <input type=\"checkbox\" :checked=\"true\" @change=\"\">\r\n-            <span>已完成{{0}}/ 全部{{list.length}}</span>\r\n-        </label>\r\n-        <button @click=\"clearAll\">清除已完成任务</button>\r\n-    </div>\r\n-</template>\r\n-\r\n-<script lang=\"ts\" name=\"Footer\" setup>\r\n-import { defineProps } from 'vue';\r\n-defineProps(['list','','clearAll'])\r\n-\r\n-\r\n-</script>\r\n-    \r\n-<style scoped>\r\n-    .todo-footer{\r\n-        display: flex;\r\n-        justify-content: space-between;\r\n-    }\r\n-    \r\n </style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712150636667,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,17 @@\n <template>\r\n     <div class=\"todo-footer\">\r\n         <label>\r\n-            <input type=\"checkbox\" :checked=\"all\" @change=\"\">\r\n+            <input type=\"checkbox\" :checked=\"all\">\r\n             <span>已完成{{0}}/ 全部{{list.length}}</span>\r\n         </label>\r\n         <button @click=\"clearAll\">清除已完成任务</button>\r\n     </div>\r\n </template>\r\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps } from 'vue';\r\n-defineProps(['list','checkAll','clearAll'])\r\n+defineProps(['list','all','clearAll'])\r\n \r\n \r\n </script>\r\n     \r\n"
+                },
+                {
+                    "date": 1712150765218,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\r\n     <div class=\"todo-footer\">\r\n         <label>\r\n-            <input type=\"checkbox\" :checked=\"all\">\r\n+            <input type=\"checkbox\" v-m>\r\n             <span>已完成{{0}}/ 全部{{list.length}}</span>\r\n         </label>\r\n         <button @click=\"clearAll\">清除已完成任务</button>\r\n     </div>\r\n"
+                },
+                {
+                    "date": 1712150771168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,17 @@\n <template>\r\n     <div class=\"todo-footer\">\r\n         <label>\r\n-            <input type=\"checkbox\" v-m>\r\n+            <input type=\"checkbox\" v-model=\"\">\r\n             <span>已完成{{0}}/ 全部{{list.length}}</span>\r\n         </label>\r\n         <button @click=\"clearAll\">清除已完成任务</button>\r\n     </div>\r\n </template>\r\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps } from 'vue';\r\n-defineProps(['list','all','clearAll'])\r\n+defineProps(['list','clearAll'])\r\n \r\n \r\n </script>\r\n     \r\n"
+                },
+                {
+                    "date": 1712150783817,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <template>\r\n     <div class=\"todo-footer\">\r\n         <label>\r\n-            <input type=\"checkbox\" v-model=\"\">\r\n+            <input type=\"checkbox\" v-model=\"isAll\">\r\n             <span>已完成{{0}}/ 全部{{list.length}}</span>\r\n         </label>\r\n         <button @click=\"clearAll\">清除已完成任务</button>\r\n     </div>\r\n@@ -10,10 +10,12 @@\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps } from 'vue';\r\n defineProps(['list','clearAll'])\r\n+function isAll(){\r\n+    if\r\n+}\r\n \r\n-\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-footer{\r\n"
+                },
+                {
+                    "date": 1712150851315,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,10 +10,11 @@\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps } from 'vue';\r\n defineProps(['list','clearAll'])\r\n+\r\n function isAll(){\r\n-    if\r\n+    if()\r\n }\r\n \r\n </script>\r\n     \r\n"
+                },
+                {
+                    "date": 1712150879264,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n import { defineProps } from 'vue';\r\n defineProps(['list','clearAll'])\r\n \r\n function isAll(){\r\n-    if()\r\n+    \r\n }\r\n \r\n </script>\r\n     \r\n"
+                },
+                {
+                    "date": 1712150888252,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps } from 'vue';\r\n defineProps(['list','clearAll'])\r\n-\r\n+wa\r\n function isAll(){\r\n     \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1712150899046,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps } from 'vue';\r\n defineProps(['list','clearAll'])\r\n-wa\r\n+fi\r\n function isAll(){\r\n     \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1712150904914,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,11 @@\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps } from 'vue';\r\n defineProps(['list','clearAll'])\r\n-fi\r\n+function(){\r\n+    \r\n+}\r\n function isAll(){\r\n     \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1712150916231,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps } from 'vue';\r\n defineProps(['list','clearAll'])\r\n-function(){\r\n+function a(){\r\n     \r\n }\r\n function isAll(){\r\n     \r\n"
+                },
+                {
+                    "date": 1712150938176,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,11 +10,8 @@\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps } from 'vue';\r\n defineProps(['list','clearAll'])\r\n-function a(){\r\n-    \r\n-}\r\n function isAll(){\r\n     \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1712151008571,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n </template>\r\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps } from 'vue';\r\n-defineProps(['list','clearAll'])\r\n+consdefineProps(['list','clearAll'])\r\n function isAll(){\r\n     \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1712151014951,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n </template>\r\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps } from 'vue';\r\n-consdefineProps(['list','clearAll'])\r\n+const props=defineProps(['list','clearAll'])\r\n function isAll(){\r\n     \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1712151021913,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n const props=defineProps(['list','clearAll'])\r\n function isAll(){\r\n     \r\n }\r\n-\r\n+log\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-footer{\r\n"
+                },
+                {
+                    "date": 1712151069727,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,13 +9,14 @@\n </template>\r\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps } from 'vue';\r\n-const props=defineProps(['list','clearAll'])\r\n+const props,clearAll=defineProps(['list','clearAll'])\r\n function isAll(){\r\n     \r\n }\r\n-log\r\n+console.log(props.list);\r\n+\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-footer{\r\n"
+                },
+                {
+                    "date": 1712151078228,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n </template>\r\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps } from 'vue';\r\n-const props,clearAll=defineProps(['list','clearAll'])\r\n+const{ list,clearAll}=defineProps(['list','clearAll'])\r\n function isAll(){\r\n     \r\n }\r\n console.log(props.list);\r\n"
+                },
+                {
+                    "date": 1712151090076,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,12 +11,12 @@\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps } from 'vue';\r\n const{ list,clearAll}=defineProps(['list','clearAll'])\r\n function isAll(){\r\n-    \r\n+    list.foe\r\n }\r\n-console.log(props.list);\r\n \r\n+\r\n </script>\r\n     \r\n <style scoped>\r\n     .todo-footer{\r\n"
+                },
+                {
+                    "date": 1712151097270,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,11 @@\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps } from 'vue';\r\n const{ list,clearAll}=defineProps(['list','clearAll'])\r\n function isAll(){\r\n-    list.foe\r\n+    list.forEach(item => {\r\n+        \r\n+    });\r\n }\r\n \r\n \r\n </script>\r\n"
+                },
+                {
+                    "date": 1712151108664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,29 @@\n+<template>\r\n+    <div class=\"todo-footer\">\r\n+        <label>\r\n+            <input type=\"checkbox\" v-model=\"isAll\">\r\n+            <span>已完成{{0}}/ 全部{{list.length}}</span>\r\n+        </label>\r\n+        <button @click=\"clearAll\">清除已完成任务</button>\r\n+    </div>\r\n+</template>\r\n+\r\n+<script lang=\"ts\" name=\"Footer\" setup>\r\n+import { defineProps } from 'vue';\r\n+const{ list,clearAll}=defineProps(['list','clearAll'])\r\n+function isAll(){\r\n+    list.forEach(item:Object => {\r\n+        \r\n+    });\r\n+}\r\n+\r\n+\r\n+</script>\r\n+    \r\n+<style scoped>\r\n+    .todo-footer{\r\n+        display: flex;\r\n+        justify-content: space-between;\r\n+    }\r\n+    \r\n+</style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712151115774,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps } from 'vue';\r\n const{ list,clearAll}=defineProps(['list','clearAll'])\r\n function isAll(){\r\n-    list.forEach(item:Object => {\r\n+    list.forEach((item:object) => {\r\n         \r\n     });\r\n }\r\n \r\n@@ -25,34 +25,5 @@\n         display: flex;\r\n         justify-content: space-between;\r\n     }\r\n     \r\n-</style>\n-<template>\r\n-    <div class=\"todo-footer\">\r\n-        <label>\r\n-            <input type=\"checkbox\" v-model=\"isAll\">\r\n-            <span>已完成{{0}}/ 全部{{list.length}}</span>\r\n-        </label>\r\n-        <button @click=\"clearAll\">清除已完成任务</button>\r\n-    </div>\r\n-</template>\r\n-\r\n-<script lang=\"ts\" name=\"Footer\" setup>\r\n-import { defineProps } from 'vue';\r\n-const{ list,clearAll}=defineProps(['list','clearAll'])\r\n-function isAll(){\r\n-    list.forEach(item => {\r\n-        \r\n-    });\r\n-}\r\n-\r\n-\r\n-</script>\r\n-    \r\n-<style scoped>\r\n-    .todo-footer{\r\n-        display: flex;\r\n-        justify-content: space-between;\r\n-    }\r\n-    \r\n </style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712151121185,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n import { defineProps } from 'vue';\r\n const{ list,clearAll}=defineProps(['list','clearAll'])\r\n function isAll(){\r\n     list.forEach((item:object) => {\r\n-        \r\n+        if(i)\r\n     });\r\n }\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1712151128950,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n import { defineProps } from 'vue';\r\n const{ list,clearAll}=defineProps(['list','clearAll'])\r\n function isAll(){\r\n     list.forEach((item:object) => {\r\n-        if(i)\r\n+        if(item.done) count++\r\n     });\r\n }\r\n \r\n \r\n"
+                },
+                {
+                    "date": 1712151135138,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps } from 'vue';\r\n const{ list,clearAll}=defineProps(['list','clearAll'])\r\n function isAll(){\r\n+    let count=0\r\n     list.forEach((item:object) => {\r\n         if(item.done) count++\r\n     });\r\n }\r\n"
+                },
+                {
+                    "date": 1712151140601,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps } from 'vue';\r\n const{ list,clearAll}=defineProps(['list','clearAll'])\r\n function isAll(){\r\n-    let count=0\r\n+    let count=ref(0)\r\n     list.forEach((item:object) => {\r\n         if(item.done) count++\r\n     });\r\n }\r\n"
+                },
+                {
+                    "date": 1712151147857,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     </div>\r\n </template>\r\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n-import { defineProps } from 'vue';\r\n+import { defineProps,ref } from 'vue';\r\n const{ list,clearAll}=defineProps(['list','clearAll'])\r\n function isAll(){\r\n     let count=ref(0)\r\n     list.forEach((item:object) => {\r\n"
+                },
+                {
+                    "date": 1712151170296,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,10 +13,11 @@\n const{ list,clearAll}=defineProps(['list','clearAll'])\r\n function isAll(){\r\n     let count=ref(0)\r\n     list.forEach((item:object) => {\r\n-        if(item.done) count++\r\n+        if(item.done) count.value++\r\n     });\r\n+    \r\n }\r\n \r\n \r\n </script>\r\n"
+                },
+                {
+                    "date": 1712151181795,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,14 +10,15 @@\n \r\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps,ref } from 'vue';\r\n const{ list,clearAll}=defineProps(['list','clearAll'])\r\n+let count=ref(0)\r\n+let \r\n function isAll(){\r\n-    let count=ref(0)\r\n     list.forEach((item:object) => {\r\n         if(item.done) count.value++\r\n     });\r\n-    \r\n+\r\n }\r\n \r\n \r\n </script>\r\n"
+                },
+                {
+                    "date": 1712151188509,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n import { defineProps,ref } from 'vue';\r\n const{ list,clearAll}=defineProps(['list','clearAll'])\r\n let count=ref(0)\r\n let \r\n-function isAll(){\r\n+function cAll(){\r\n     list.forEach((item:object) => {\r\n         if(item.done) count.value++\r\n     });\r\n \r\n"
+                },
+                {
+                    "date": 1712151197106,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,32 @@\n+<template>\r\n+    <div class=\"todo-footer\">\r\n+        <label>\r\n+            <input type=\"checkbox\" v-model=\"isAll\">\r\n+            <span>已完成{{0}}/ 全部{{list.length}}</span>\r\n+        </label>\r\n+        <button @click=\"clearAll\">清除已完成任务</button>\r\n+    </div>\r\n+</template>\r\n+\r\n+<script lang=\"ts\" name=\"Footer\" setup>\r\n+import { defineProps,ref } from 'vue';\r\n+const{ list,clearAll}=defineProps(['list','clearAll'])\r\n+let count=ref(0)\r\n+let a\r\n+function checkAll(){\r\n+    list.forEach((item:object) => {\r\n+        if(item.done) count.value++\r\n+    });\r\n+\r\n+}\r\n+\r\n+\r\n+</script>\r\n+    \r\n+<style scoped>\r\n+    .todo-footer{\r\n+        display: flex;\r\n+        justify-content: space-between;\r\n+    }\r\n+    \r\n+</style>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1712151210440,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n <script lang=\"ts\" name=\"Footer\" setup>\r\n import { defineProps,ref } from 'vue';\r\n const{ list,clearAll}=defineProps(['list','clearAll'])\r\n let count=ref(0)\r\n-let isAll=ref(fl)\r\n+let isAll=ref(fla)\r\n function checkAll(){\r\n     list.forEach((item:object) => {\r\n         if(item.done) count.value++\r\n     });\r\n"
+                },
+                {
+                    "date": 1712151244950,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,12 @@\n let isAll=ref(false)\r\n function checkAll(){\r\n     \r\n }\r\n+list.forEach((item:object) => {\r\n+        if(item.done) count.value++\r\n+    });\r\n+    isAll.value=true\r\n \r\n \r\n </script>\r\n     \r\n"
+                }
+            ],
+            "date": 1712117735430,
+            "name": "Commit-0",
+            "content": "<template>\r\n    <div class=\"todo-footer\">\r\n        <label>\r\n            <input type=\"checkbox\" v-model=\"isAll\">\r\n            <span>已完成{{ haveDone }} / 全部{{todos.length}}</span>\r\n        </label>\r\n        <button @click=\"clearAll\">清除已完成任务</button>\r\n    </div>\r\n</template>\r\n<script>\r\n    export default{\r\n        name:'Footer',\r\n        props:['todos'],\r\n        computed:{\r\n            haveDone(){\r\n                \r\n                // return this.todos.reduce((pre,current)=>pre+(current.done?1:0),0)\r\n            },\r\n            isAll:{\r\n                get(){\r\n                    return this.haveDone===this.todos.length&&this.todos.length>0\r\n                },\r\n                set(x){\r\n                    this.$emit('checkAll',x)\r\n                }\r\n            }\r\n\r\n        },\r\n        methods:{\r\n            clearAll(){\r\n                this.$emit('clear');\r\n            }\r\n        }\r\n           \r\n        \r\n       \r\n        \r\n    }\r\n</script>\r\n    \r\n<style scoped>\r\n    .todo-footer{\r\n        display: flex;\r\n        justify-content: space-between;\r\n    }\r\n    \r\n</style>"
+        }
+    ]
+}
